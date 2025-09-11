@@ -1,0 +1,108 @@
+.acceuil {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #0D1282;
+    padding: 2vw;
+    /* margin-left: 5vw; */
+    /* margin-top: 1.5vw; */
+    /* margin-bottom: 5vw; */
+    /* border: #0D1282 1px solid;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); */
+    font-family: sans-serif;
+    /* background: lightgrey; */
+}
+
+.acceuil h2{
+    font-size: 3vw;
+    margin-bottom: 1vw;
+    text-transform: capitalize;
+    margin-bottom: 1.5vw;
+    /* text-decoration: underline #D71313; */
+}
+.acceuil h4{
+    font-size: 2vw;
+    margin-bottom: 1.5vw;
+    color: #D71313;
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+}
+.boxAcc{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* flex-wrap: wrap; */
+    padding: 1.5vw;
+    margin-bottom: 2vw;
+    border-radius: 10px;
+    /* background-color: #F0DE36; */
+}
+.boxAcc h5 {
+    font-size: 2vw;
+    margin-bottom: 1vw;
+    color: #0D1282;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-decoration: underline;
+}
+
+.boxAcc p{
+    font-size: 1.3vw;
+    margin-bottom: 1vw;
+}
+.boxAcc img{
+    width: 10vw;
+    height: 10vw;
+    /* border-radius: 50%; */
+    margin-bottom: 1vw;
+}
+.boxAcc img {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    margin-bottom: 1vw;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boxAcc img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+ .aPropos img{
+   margin-right: 1.5vw;
+ }
+.avantages img{
+   margin-right: 1.5vw;
+}   
+.avantages h5{
+    text-align: Justify;
+    text-decoration: underline;
+}
+.avantages p{
+    text-align: justify;
+    margin-bottom: 1vw;
+    font-size: 1.5VW;
+}
+.faranyAcc h4 {
+    text-align: center;
+    margin-bottom: 1vw;
+    color: #D71313;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    letter-spacing: 0.1em;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #D71313, 0 0 10px #D71313, 0 0 20px #D71313;
+    }
+    to {
+        text-shadow: 0 0 20px #FF4D4D, 0 0 30px #fff, 0 0 40px #FF4D4D;
+    }
+}

@@ -1,7 +1,7 @@
 <?php
-      require '../router/Dbconnection.php';
+      // require 'router/Dbconnection.php';
     //   require '../app/utils/file_upload_utils.php';
-      $db = connection_db();
+      // $db = connection_db();
 
       function create(){
         global $db;

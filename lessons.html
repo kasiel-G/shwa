@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5%;
+        
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ddd;
+    }
+    header img {
+        height: 50px;
+        border-radius: 50%;
+    }
+    nav {
+        position: relative;
+        left: 4vw;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+    }
+    nav ul li a {
+    text-decoration: none;
+    color: #11468F;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    ul li a:hover {
+    color: #EEEEEE !important;
+    /* border-radius: 20px; */
+    background-color: #11468F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+    .profil {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .profil img {
+        height: 50px;
+        border-radius: 50%;
+        border:  #da1212e0 2px solid;
+    }
+    .profil span a{
+        font-weight: bold;
+        color: #11468F;
+        background-color: transparent;
+        text-transform: capitalize;
+        border: none !important;
+    }
+    .profil a {
+    text-decoration: none;
+    color: #EEEEEE;
+    background-color: #da1212e0;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 10px 15px !important;
+    border-radius: 20px;
+    /* border: #0056b3 2px solid; */
+
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+    .profil a:hover {
+    color: #EEEEEE !important;
+    background-color: #11468F;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+    .lessonbox {
+        border: 1px solid #ddd;
+        width: 35%;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        /* border: #da1212e0 2px solid; */
+    }
+    .lessonbox h2 {
+        margin-bottom: 10px;
+        color: #0056b3;
+        text-align: justify;
+    }
+    .lessonbox p {
+        margin-bottom: 1.5vw;
+        color: #666;
+        text-align: justify;
+        font-size: 1.2vw;
+    }
+    .lessonbox button{
+        text-decoration: none;
+        color: #fff;
+        background: #11468F;    
+        padding: 10px 15px;
+        border-radius: 5px;
+        font-weight: bold;
+        width: 100%;
+        border: none;
+        font-size: 1.2vw;
+    }
+    .lessonbox button:hover {
+        background-color: #0056b3;
+    }
+    .lessonbox img{
+    width: 100%;
+    height: 15vw;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+    width: 100%;
+    background-color: #11468F;
+    color: #EEEEEE;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+footer .links {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: #EEEEEE;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+footer .links a:hover {
+    color: #DA1212;
+    transform: scale(1.1);
+}
+
+footer .links p {
+    margin: 0 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    top: -2px;
+    color: #EEEEEE;
+}
+
+footer p {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #EEEEEE;
+    opacity: 0.8;
+}
+</style>
+<body>
+    <header>
+        <img src="public/IMG/logo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a href="">dashboard</a></li>
+                <li><a href="">lessons</a></li>
+                <li><a href="">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="profil">
+            <img src="public/IMG/boky.jpg" alt="profil">
+            <span><a>John Doe</a></span>
+            <a href="">logout</a>
+        </div>
+    </header>
+
+    <section>
+        <div class="lessonbox">
+            <img src="public/IMG/boky.jpg" alt="livre">
+            <h2>Grammar</h2>
+            <p>Maîtrisez les fondations de l’anglais : Explorez les règles essentielles, les structures de phrases et les subtilités grammaticales pour écrire et parler avec précision.</p>
+            <button>Start Lesson</button>
+        </div>
+        <div class="lessonbox">
+            <img src="public/IMG/dude having fun.jpg" alt="decorations">
+            <h2>Vocabulary</h2>
+            <p>Exprimez-vous avec naturel : Découvrez des mots, expressions idiomatiques et phrases courantes pour enrichir votre anglais du quotidien.</p>
+            <button>Start Lesson</button>    
+        </div>
+        <div class="lessonbox">
+            <img src="public/IMG/dude having fun.jpg" alt="radio">
+            <h2>Listening</h2>
+            <p>Affinez votre oreille : Écoutez des conversations authentiques et développez votre compréhension orale à travers des dialogues variés.</p>
+            <button>Start Lesson</button>
+        </div>
+        <div class="lessonbox">
+            <img src="public/IMG/studying.jpg" alt="journal">
+            <h2>Reading</h2>
+            <p>Plongez dans les textes : Lisez des histoires, articles et bandes dessinées pour améliorer votre fluidité et votre compréhension écrite.</p>
+            <button>Start Lesson</button>
+        </div>
+        <div class="lessonbox">
+            <img src="public/IMG/study group.jpg" alt="just some random people">
+            <h2>Cultural Insights</h2>
+            <p>Voyagez à travers les cultures : Apprenez des faits fascinants, des coutumes et des perspectives du monde anglophone pour élargir votre horizon.</p>
+            <button>Start Lesson</button>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="links">
+            <a href="">facebook</a>
+            <p>|</p>
+            <a href="">whatsapp</a>
+            <p>|</p>
+            <a href="">instagram</a>
+        </div>
+        <p>&copy; 2025 Schwa. All rights reserved.</p>
+    </footer>
+</body>
+</html>

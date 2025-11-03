@@ -1,4 +1,6 @@
 <?php
+    require 'app/Models/userModel.php';
+    require 'app/API/registerAPI.php';
     require 'router/Dbconnection.php';
     $db = connection_db();
 ?>
@@ -22,8 +24,7 @@
         require'app/INC/footer.php';
     ?>
 
-
     <script src="public/js/script.js"></script>
-    <script src="public/JS/Api/authenification.js" type="module"></script>
+    <!-- <script src="public/JS/Api/authenification.js" type="module"></script> -->
 </body>
 </html>

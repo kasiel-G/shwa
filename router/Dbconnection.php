@@ -4,7 +4,7 @@
     const DB_USERNAME = "root";
     const DB_PASSWORD = "";
 
-    echo "Connected successfully";
+    // echo "Connected successfully";
     function connection_db(){
     $db_name = DB_NAME;
     $db_host = DB_HOST;
@@ -14,6 +14,7 @@
     try {
         $db = new PDO("mysql:host=$db_host;dbname=$db_name", "$db_username", "$db_password");
         $db->exec("SET NAMES utf8mb4");
+    echo "Connected successfully";
     } catch (PDOException $e) {
         die("connexio failed: " . $e->getMessage());
     }

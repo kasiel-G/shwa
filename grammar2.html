@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grammar Lessons | Schwa</title>
+  <style>
+    /* ---------- BASE STYLES ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 50px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0066ff;
+    }
+
+    /* ---------- PROFILE DROPDOWN ---------- */
+    .profile {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+
+    .profile-name {
+      font-weight: 600;
+    }
+
+    .profile-dropdown {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 10px 0;
+      width: 160px;
+      animation: fadeIn 0.2s ease;
+    }
+
+    .profile-dropdown a {
+      display: block;
+      padding: 10px 15px;
+      color: #222;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .profile-dropdown a:hover {
+      background-color: #f2f5ff;
+    }
+
+    .logout-btn {
+      color: #e63946;
+      font-weight: 600;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- PAGE CONTENT ---------- */
+    .container {
+      padding: 40px 10%;
+      flex-grow: 1;
+    }
+
+    h1 {
+      color: #004aad;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .lesson-count {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      position: relative;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background-color: #003b8e;
+    }
+
+    /* .filter-btn::after {
+      content: attr(data-count);
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #e63946;
+      color: white;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    } */
+
+    /* ---------- LESSON CARDS ---------- */
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-items: center;
+    }
+
+    .lesson-card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 20px;
+      width: 100%;
+      max-width: 330px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.6s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .lesson-card[data-level="A1"] { border-left-color: #10b981; }
+    .lesson-card[data-level="A2"] { border-left-color: #fbbf24; }
+    .lesson-card[data-level="B1"] { border-left-color: #f97316; }
+    .lesson-card[data-level="B2"] { border-left-color: #ef4444; }
+    .lesson-card[data-level="C1"] { border-left-color: #8b5cf6; }
+
+    .lesson-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .lesson-level {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .lesson-card[data-level="A1"] .lesson-level { background: #10b981; }
+    .lesson-card[data-level="A2"] .lesson-level { background: #fbbf24; }
+    .lesson-card[data-level="B1"] .lesson-level { background: #f97316; }
+    .lesson-card[data-level="B2"] .lesson-level { background: #ef4444; }
+    .lesson-card[data-level="C1"] .lesson-level { background: #8b5cf6; }
+
+    .lesson-card h3 {
+      color: #004aad;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .lesson-card p {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .lesson-card button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .lesson-card button:hover {
+      background-color: #003b8e;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background-color: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+      }
+      .filter-bar {
+        margin-bottom: 20px;
+      }
+      .container {
+        padding: 20px 5%;
+      }
+    }
+    .profile img{
+      border-radius: 50%;
+      border: #e63946 solid 2px;
+    }
+    .logo img{
+      border-radius: 50%;
+      border: #e63946 solid 2px;
+    }
+    header{
+      color: #003b8e;
+    }
+  </style>
+</head>
+<body>
+  <!-- ---------- HEADER ---------- -->
+  <header>
+    <div class="logo">
+      <img src="public/IMG/minilogo.png" alt="Schwa Logo" width="50" />
+      <h2>Schwa</h2>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lessons.html">Lessons</a></li>
+        <li><a href="progress.html">My Progress</a></li>
+      </ul>
+    </nav>
+
+    <div class="profile" onclick="toggleProfileMenu()">
+      <img src="public/IMG/minilogo.png" alt="">
+      <span class="profile-name">John Doe</span>
+      <div id="profile-menu" class="profile-dropdown">
+        <a href="#">View Profile</a>
+        <a href="#">Settings</a>
+        <a href="#" class="logout-btn">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ---------- PAGE CONTENT ---------- -->
+  <div class="container">
+    <h1>📚 Grammar Lessons</h1>
+    <p class="lesson-count">Explore <strong id="totalLessons">0</strong> comprehensive grammar lessons</p>
+
+    <!-- Filter buttons -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-level="all" data-count="0">All</button>
+      <button class="filter-btn" data-level="A1" data-count="0">A1</button>
+      <button class="filter-btn" data-level="A2" data-count="0">A2</button>
+      <button class="filter-btn" data-level="B1" data-count="0">B1</button>
+      <button class="filter-btn" data-level="B2" data-count="0">B2</button>
+      <button class="filter-btn" data-level="C1" data-count="0">C1-C2</button>
+    </div>
+
+    <!-- Lesson cards -->
+    <div class="lesson-grid" id="lessonGrid">
+      <!-- A1 LESSONS -->
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Verb "to be"</h3>
+        <p>Master the foundation of English: am, is, are. Essential for introducing yourself and describing things.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Simple Present Tense</h3>
+        <p>Learn how to use verbs in the present tense for daily routines and habits.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Articles (a, an, the)</h3>
+        <p>Understand when to use "a", "an", and "the" correctly in sentences.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Personal Pronouns</h3>
+        <p>Learn about I, you, he, she, it, we, they and how to use them properly.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Plural Forms</h3>
+        <p>Discover how to make nouns plural: regular and irregular forms.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>Basic Questions</h3>
+        <p>Ask questions using What, Where, When, Who, Why, and How.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A1">
+        <span class="lesson-level">A1</span>
+        <h3>There is / There are</h3>
+        <p>Learn to describe what exists or is present in a place.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <!-- A2 LESSONS -->
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Past Simple Tense</h3>
+        <p>Understand how to describe past actions and experiences clearly.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Present Continuous</h3>
+        <p>Express actions happening right now using the -ing form.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Future Simple (will)</h3>
+        <p>Talk about future plans, predictions, and spontaneous decisions.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Comparatives & Superlatives</h3>
+        <p>Learn how to compare things, people, and ideas effectively.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Prepositions of Time</h3>
+        <p>Master in, on, at for times, days, and dates.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Countable vs Uncountable</h3>
+        <p>Understand the difference and use much, many, a lot of correctly.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Some / Any / No</h3>
+        <p>Learn when to use these quantifiers in positive, negative, and questions.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="A2">
+        <span class="lesson-level">A2</span>
+        <h3>Possessive Adjectives</h3>
+        <p>Show ownership using my, your, his, her, its, our, their.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <!-- B1 LESSONS -->
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Present Perfect</h3>
+        <p>Explore how to talk about experiences and events connected to the present.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Modal Verbs</h3>
+        <p>Understand how to express ability, obligation, and advice using modal verbs.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Past Continuous</h3>
+        <p>Describe actions that were in progress at a specific time in the past.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Used to / Would</h3>
+        <p>Talk about past habits and states that are no longer true.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Relative Clauses</h3>
+        <p>Connect sentences using who, which, that, where, and when.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Passive Voice</h3>
+        <p>Learn to focus on actions rather than who performs them.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Reported Speech</h3>
+        <p>Report what someone said without using their exact words.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B1">
+        <span class="lesson-level">B1</span>
+        <h3>Adverbs of Frequency</h3>
+        <p>Express how often something happens: always, usually, sometimes, never.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <!-- B2 LESSONS -->
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>First Conditional</h3>
+        <p>Talk about real possibilities and likely future results.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Second Conditional</h3>
+        <p>Discuss hypothetical situations and their imaginary results.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Third Conditional</h3>
+        <p>Imagine how the past could have been different.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Future Perfect</h3>
+        <p>Talk about actions that will be completed by a specific time in the future.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Gerunds vs Infinitives</h3>
+        <p>Know when to use -ing forms or "to" + verb after certain verbs.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Phrasal Verbs</h3>
+        <p>Master common verb + preposition combinations used in everyday English.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Wish / If only</h3>
+        <p>Express regrets about the present or past, and desires for change.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="B2">
+        <span class="lesson-level">B2</span>
+        <h3>Linking Words</h3>
+        <p>Connect ideas smoothly using moreover, however, therefore, and more.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <!-- C1 LESSONS -->
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Advanced Passive Structures</h3>
+        <p>Master complex passive constructions with reporting verbs and modals.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Inversion for Emphasis</h3>
+        <p>Use inverted word order to add drama and formality to your English.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Subjunctive Mood</h3>
+        <p>Express wishes, demands, and suggestions in formal English.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Mixed Conditionals</h3>
+        <p>Combine different conditional forms to express complex time relationships.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Cleft Sentences</h3>
+        <p>Use "it" and "what" clefts to emphasize specific information.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Advanced Modals of Deduction</h3>
+        <p>Make sophisticated speculations about past, present, and future.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Ellipsis and Substitution</h3>
+        <p>Avoid repetition by omitting or replacing words naturally.</p>
+        <button>Start Lesson</button>
+      </div>
+
+      <div class="lesson-card" data-level="C1">
+        <span class="lesson-level">C1-C2</span>
+        <h3>Discourse Markers</h3>
+        <p>Structure complex arguments and narratives with advanced connectors.</p>
+        <button>Start Lesson</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- FOOTER ---------- -->
+  <footer>
+    <div>
+      <a href="#">FACEBOOK</a> | <a href="#">WHATSAPP</a> | <a href="#">INSTAGRAM</a>
+    </div>
+    <p>© 2025 Schwa. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle profile dropdown
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', (e) => {
+      const profile = document.querySelector('.profile');
+      const menu = document.getElementById('profile-menu');
+      if (!profile.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+    // Count lessons and update badges
+    const lessons = document.querySelectorAll('.lesson-card');
+    const levelCounts = {
+      'A1': 0,
+      'A2': 0,
+      'B1': 0,
+      'B2': 0,
+      'C1': 0
+    };
+
+    lessons.forEach(card => {
+      const level = card.dataset.level;
+      if (levelCounts.hasOwnProperty(level)) {
+        levelCounts[level]++;
+      }
+    });
+
+    // Update filter button badges
+    document.querySelector('[data-level="all"]').dataset.count = lessons.length;
+    document.querySelector('[data-level="A1"]').dataset.count = levelCounts.A1;
+    document.querySelector('[data-level="A2"]').dataset.count = levelCounts.A2;
+    document.querySelector('[data-level="B1"]').dataset.count = levelCounts.B1;
+    document.querySelector('[data-level="B2"]').dataset.count = levelCounts.B2;
+    document.querySelector('[data-level="C1"]').dataset.count = levelCounts.C1;
+
+    // Update total lesson count
+    document.getElementById('totalLessons').textContent = lessons.length;
+
+    // Filter system
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const level = btn.dataset.level;
+
+        lessons.forEach(card => {
+          if (level === 'all' || card.dataset.level === level) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

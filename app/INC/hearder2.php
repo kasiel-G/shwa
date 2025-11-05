@@ -7,9 +7,11 @@
                 <li><a href="">Dashboard</a></li>
             </ul>
         </nav>
-        <div class="profil">
-            <img src="public/IMG/boky.jpg" alt="profil">
-            <span>John Doe</span>
-            <a href="">logout</a>
-        </div>
+        <div class="profile" onclick="toggleProfileMenu()">
+        <span class="profile-name">John Doe ▼</span>
+        <div id="profile-menu" class="profile-dropdown">
+        <a href="#">View Profile</a>
+        <a href="#">Settings</a>
+        <a href="#" class="logout-btn">Logout</a>
+      </div>
     </header>

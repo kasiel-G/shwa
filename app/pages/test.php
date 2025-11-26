@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>English Level Test 🇺🇸</title>
   <link rel="stylesheet" href="css/test.css">
+  <link rel="stylesheet" href="/app/pages/css/header.css">
   <!-- <style>
     body {
       font-family: "Poppins", sans-serif;
@@ -81,7 +82,9 @@
   </style> -->
 </head>
 <body>
-
+  <?php
+    require "../INC/hearder2.php"
+  ?>
   <div class="container">
     <h2>🇺🇸 English Level Test</h2>
     <p style="text-align:center;">Answer all 10 questions to discover your English level</p>
@@ -200,6 +203,19 @@
 
       window.location.href = "result.php";
     }
+
+    function toggleProfileMenu() {
+      const menu = document.getElementById('profile-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    document.addEventListener('click', (e) => {
+      const profile = document.querySelector('.profile');
+      const menu = document.getElementById('profile-menu');
+      if (!profile.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
   </script>
 
 </body>

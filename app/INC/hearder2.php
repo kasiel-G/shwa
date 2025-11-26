@@ -1,5 +1,5 @@
 <header>
-        <img src="public/IMG/logo.png" alt="logo">
+        <img src="/public/IMG/minilogo.png" alt="logo">
         <nav>
             <ul>
                 <li><a href="">dashboard</a></li>
@@ -8,6 +8,7 @@
             </ul>
         </nav>
         <div class="profile" onclick="toggleProfileMenu()">
+          <img src="/public/IMG/minilogo.png" alt="">
         <span class="profile-name">John Doe ▼</span>
         <div id="profile-menu" class="profile-dropdown">
         <a href="#">View Profile</a>

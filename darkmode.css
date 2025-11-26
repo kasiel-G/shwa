@@ -1,0 +1,83 @@
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    padding: 10px 0;
+    width: 160px;
+    animation: fadeIn 0.2s ease;
+    z-index: 20;
+  }
+  
+  .dropdown-menu a,
+  .dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    color: #11468F;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dropdown-menu a:hover,
+  .dropdown-menu button:hover {
+    background-color: #f2f5ff;
+  }
+  
+  /* Mode sombre global */
+  body.dark-mode {
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+  
+  body.dark-mode header {
+    background: #1e293b;
+    box-shadow: none;
+  }
+  
+  body.dark-mode nav ul li a {
+    color: #e2e8f0;
+  }
+  
+  body.dark-mode nav ul li a:hover {
+    background: #334155;
+  }
+  
+  body.dark-mode .lessonbox {
+    background: #1e293b;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  }
+  
+  body.dark-mode .lessonbox h2 {
+    color: #60a5fa;
+  }
+  
+  body.dark-mode .lessonbox p {
+    color: #cbd5e1;
+  }
+  
+  body.dark-mode .lessonbox button {
+    background: #334155;
+  }
+  
+  body.dark-mode .lessonbox button:hover {
+    background: #2563eb;
+  }
+  
+  body.dark-mode footer {
+    background: #1e293b;
+  }
+  
+  /* Animation du dropdown */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  

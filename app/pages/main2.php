@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-        require "./app/INC/header.php"
+        require "./app/INC/header2.php"
     ?>
 
     <h1>Page d'accueil</h1>

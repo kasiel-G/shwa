@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reading Lessons | Schwa</title>
+  <link rel="stylesheet" href="darkmode.css">
   <style>
     /* ---------- BASE STYLES ---------- */
     * {
@@ -303,15 +304,16 @@
       </ul>
     </nav>
 
-    <div class="profile" onclick="toggleProfileMenu()">
-      <img src="public/IMG/minilogo.png" alt="">
-      <span class="profile-name">John Doe</span>
-      <div id="profile-menu" class="profile-dropdown">
-        <a href="#">View Profile</a>
-        <a href="#">Settings</a>
-        <a href="#" class="logout-btn">Logout</a>
+    <div class="profil" onclick="toggleMenu()">
+      <img src="public/IMG/minilogo.png" alt="profil">
+      <span>John Doe</span>
+      <div id="menu" class="dropdown-menu">
+        <a href="">profil</a>
+        <a id="darkModeToggle">Dark Mode 🌙</a>
+        <a href="#">Logout</a>
       </div>
     </div>
+    
   </header>
 
   <!-- ---------- PAGE CONTENT ---------- -->
@@ -792,5 +794,6 @@ filterButtons.forEach(btn => {
 applyFilter('all');
 
   </script>
+  <script src="darkmode.js"></script>
 </body>
 </html>

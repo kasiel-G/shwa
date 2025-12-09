@@ -1,11 +1,11 @@
 const lessons = document.querySelectorAll('.lesson-card');
-// const levelCounts = {
-//   'A1': 0,
-//   'A2': 0,
-//   'B1': 0,
-//   'B2': 0,
-//   'C1': 0
-// };
+const levelCounts = {
+  'A1': 0,
+  'A2': 0,
+  'B1': 0,
+  'B2': 0,
+  'C1': 0
+};
 
 lessons.forEach(card => {
   const level = card.dataset.level;

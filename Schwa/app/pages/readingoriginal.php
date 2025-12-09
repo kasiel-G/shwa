@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listening</title>
+    <title>Accueil</title>
     <link rel="stylesheet" href="css/grammar.css">
-    <link rel="stylesheet" href="css/darkmode.css">
+    <link rel="stylesheet" href="css/darkmode.css" id="darklink">
 </head>
 <body>
     <?php
@@ -14,8 +14,8 @@
     ?>
 <section>
 <div class="container">
-<h1>🎧 Listening Lessons</h1>
-    <p class="lesson-count">Practice with <strong id="totalLessons">0</strong> authentic audio exercises</p>
+    <h1>📖 Reading Lessons</h1>
+    <p class="lesson-count">Dive into <strong id="totalLessons">0</strong> captivating reading materials</p>
 
     <!-- Filter buttons -->
     <div class="filter-bar">
@@ -32,290 +32,283 @@
       <!-- A1 LESSONS -->
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Simple Introductions</h3>
-        <p>Listen to people introducing themselves with names, ages, and nationalities.</p>
+        <h3>Simple Dialogues</h3>
+        <p>Read short conversations between people in everyday situations.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Numbers & Prices</h3>
-        <p>Practice understanding numbers in shopping and everyday contexts.</p>
+        <h3>Picture Stories</h3>
+        <p>Follow simple narratives with images to support comprehension.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Daily Routines</h3>
-        <p>Hear people talking about their typical day and activities.</p>
+        <h3>Basic Instructions</h3>
+        <p>Understand simple written directions and how-to guides.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Simple Questions</h3>
-        <p>Listen to basic questions about time, location, and personal information.</p>
+        <h3>Shopping Lists & Menus</h3>
+        <p>Practice reading real-world documents like menus and lists.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>At the Restaurant</h3>
-        <p>Understand basic restaurant conversations and ordering food.</p>
+        <h3>Personal Profiles</h3>
+        <p>Read short biographies and self-introductions.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Directions & Places</h3>
-        <p>Learn to follow simple directions and understand location descriptions.</p>
+        <h3>Signs & Labels</h3>
+        <p>Understand common signs, labels, and public notices.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
-        <h3>Weather Talk</h3>
-        <p>Practice listening to simple weather forecasts and descriptions.</p>
+        <h3>Simple Emails</h3>
+        <p>Read basic personal emails and messages.</p>
         <button>Start Lesson</button>
       </div>
 
       <!-- A2 LESSONS -->
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Shopping Conversations</h3>
-        <p>Listen to dialogues in stores, markets, and during transactions.</p>
+        <h3>Short Stories</h3>
+        <p>Enjoy simple narratives with clear plots and characters.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Phone Calls</h3>
-        <p>Understand common telephone conversations and messages.</p>
+        <h3>Postcards & Letters</h3>
+        <p>Read personal correspondence from friends and family.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Travel & Tourism</h3>
-        <p>Practice with airport announcements and hotel check-ins.</p>
+        <h3>Travel Brochures</h3>
+        <p>Explore descriptions of destinations and tourist attractions.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Making Plans</h3>
-        <p>Listen to people arranging meetings and social events.</p>
+        <h3>Blog Posts</h3>
+        <p>Read simple online articles about everyday topics.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Personal Stories</h3>
-        <p>Hear narratives about past experiences and memories.</p>
+        <h3>Recipe Cards</h3>
+        <p>Follow cooking instructions and ingredient lists.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>Health & Medical</h3>
-        <p>Understand conversations at the doctor's office and pharmacies.</p>
+        <h3>Product Reviews</h3>
+        <p>Understand customer opinions and ratings online.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>At Work</h3>
-        <p>Listen to basic workplace conversations and instructions.</p>
+        <h3>Event Invitations</h3>
+        <p>Read invitations to parties, weddings, and gatherings.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
-        <h3>TV & Radio Clips</h3>
-        <p>Practice with short segments from broadcasts and shows.</p>
+        <h3>Simple News Articles</h3>
+        <p>Practice reading short news stories on current events.</p>
         <button>Start Lesson</button>
       </div>
 
       <!-- B1 LESSONS -->
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>News Reports</h3>
-        <p>Understand news stories on current events and topics.</p>
+        <h3>Magazine Articles</h3>
+        <p>Read longer articles on lifestyle, culture, and interests.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Interviews</h3>
-        <p>Listen to interviews with interesting people about their lives.</p>
+        <h3>Short Novels</h3>
+        <p>Dive into adapted or simplified fiction for learners.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Presentations</h3>
-        <p>Follow short talks and presentations on various subjects.</p>
+        <h3>Biographies</h3>
+        <p>Learn about famous people's lives and achievements.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Debates & Discussions</h3>
-        <p>Practice understanding different viewpoints in conversations.</p>
+        <h3>Opinion Pieces</h3>
+        <p>Read editorials and understand different viewpoints.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Podcast Episodes</h3>
-        <p>Engage with podcast content on culture, lifestyle, and more.</p>
+        <h3>Movie & Book Reviews</h3>
+        <p>Explore critical analyses of entertainment and literature.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Movie Scenes</h3>
-        <p>Watch and understand dialogue from popular films.</p>
+        <h3>Job Advertisements</h3>
+        <p>Understand professional job postings and requirements.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Advertisements</h3>
-        <p>Analyze persuasive language in commercials and ads.</p>
+        <h3>Informational Texts</h3>
+        <p>Read factual content about science, history, and society.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">
         <span class="lesson-level">B1</span>
-        <h3>Instructions & Tutorials</h3>
-        <p>Follow step-by-step guides and how-to explanations.</p>
+        <h3>Comics & Graphic Novels</h3>
+        <p>Enjoy visual storytelling with speech bubbles and panels.</p>
         <button>Start Lesson</button>
       </div>
 
       <!-- B2 LESSONS -->
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Documentary Clips</h3>
-        <p>Watch and comprehend educational documentary segments.</p>
+        <h3>Contemporary Fiction</h3>
+        <p>Read modern novels and literary short stories.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Academic Lectures</h3>
-        <p>Listen to university-style lectures on various subjects.</p>
+        <h3>Newspaper Editorials</h3>
+        <p>Analyze persuasive writing on current issues.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Business Meetings</h3>
-        <p>Understand professional discussions and negotiations.</p>
+        <h3>Research Summaries</h3>
+        <p>Understand simplified academic research findings.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>TED Talks</h3>
-        <p>Practice with inspiring talks on innovation and ideas.</p>
+        <h3>Business Reports</h3>
+        <p>Read professional reports and business correspondence.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Different Accents</h3>
-        <p>Train your ear with British, American, Australian, and other accents.</p>
+        <h3>Essays & Analysis</h3>
+        <p>Explore argumentative and analytical writing styles.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Comedy & Humor</h3>
-        <p>Understand jokes, stand-up comedy, and humorous content.</p>
+        <h3>Technical Manuals</h3>
+        <p>Follow complex instructions and specifications.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Fast-Paced Conversations</h3>
-        <p>Challenge yourself with rapid natural speech patterns.</p>
+        <h3>Historical Accounts</h3>
+        <p>Read detailed descriptions of historical events.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B2">
         <span class="lesson-level">B2</span>
-        <h3>Technical Explanations</h3>
-        <p>Follow complex technical and scientific discussions.</p>
+        <h3>Cultural Commentary</h3>
+        <p>Understand critical perspectives on society and culture.</p>
         <button>Start Lesson</button>
       </div>
 
       <!-- C1 LESSONS -->
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Political Speeches</h3>
-        <p>Analyze rhetoric and argumentation in political discourse.</p>
+        <h3>Classic Literature</h3>
+        <p>Read unabridged works from renowned authors.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Literary Readings</h3>
-        <p>Listen to excerpts from novels, poetry, and literature.</p>
+        <h3>Academic Papers</h3>
+        <p>Navigate scholarly articles and research publications.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Expert Interviews</h3>
-        <p>Understand specialists discussing complex topics in depth.</p>
+        <h3>Legal Documents</h3>
+        <p>Understand contracts, laws, and legal terminology.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Academic Conferences</h3>
-        <p>Follow presentations at professional and academic conferences.</p>
+        <h3>Philosophy Texts</h3>
+        <p>Engage with complex philosophical arguments and theories.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Historical Recordings</h3>
-        <p>Listen to significant speeches and recordings from history.</p>
+        <h3>Poetry Analysis</h3>
+        <p>Interpret meaning, metaphor, and literary devices in poems.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Philosophical Discussions</h3>
-        <p>Engage with abstract and philosophical conversations.</p>
+        <h3>Critical Theory</h3>
+        <p>Read advanced literary and cultural criticism.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Nuanced Debates</h3>
-        <p>Practice with sophisticated arguments and counter-arguments.</p>
+        <h3>Scientific Journals</h3>
+        <p>Comprehend specialized scientific research papers.</p>
         <button>Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="C1">
         <span class="lesson-level">C1-C2</span>
-        <h3>Regional Dialects</h3>
-        <p>Master understanding of various regional dialects and idioms.</p>
+        <h3>Political Discourse</h3>
+        <p>Analyze sophisticated political writing and speeches.</p>
         <button>Start Lesson</button>
       </div>
     </div>
   </div>
 </section>
-
-
-
-
-
-
-
 
 
 <?php

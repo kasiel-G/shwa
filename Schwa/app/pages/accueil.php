@@ -43,12 +43,12 @@
       <button onclick="location.href='reading.php'">Start Lesson</button>
     </div>
 
-    <div class="lessonbox">
+    <!-- <div class="lessonbox">
       <img src="../../public/IMG/study group.jpg" alt="Cultural Insights">
       <h2>Cultural Insights</h2>
       <p>Apprenez des faits fascinants, des coutumes et des perspectives du monde anglophone pour élargir votre horizon.</p>
       <button onclick="location.href='culture.php'">Start Lesson</button>
-    </div>
+    </div> -->
   </section>
 
 

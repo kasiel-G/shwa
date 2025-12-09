@@ -4,14 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Reading Lessons</title>
     <link rel="stylesheet" href="css/grammar.css">
     <link rel="stylesheet" href="css/darkmode.css" id="darklink">
 </head>
 <body>
-    <?php
-        require "../INC/hearder2.php"
-    ?>
+    <?php require "../INC/hearder2.php" ?>
+    
 <section>
 <div class="container">
     <h1>📖 Reading Lessons</h1>
@@ -34,49 +33,49 @@
         <span class="lesson-level">A1</span>
         <h3>Simple Dialogues</h3>
         <p>Read short conversations between people in everyday situations.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('simpleDialogues')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Picture Stories</h3>
         <p>Follow simple narratives with images to support comprehension.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('pictureStories')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Basic Instructions</h3>
         <p>Understand simple written directions and how-to guides.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('basicInstructions')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Shopping Lists & Menus</h3>
         <p>Practice reading real-world documents like menus and lists.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('shoppingMenus')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Personal Profiles</h3>
         <p>Read short biographies and self-introductions.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('personalProfiles')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Signs & Labels</h3>
         <p>Understand common signs, labels, and public notices.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('signsLabels')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Simple Emails</h3>
         <p>Read basic personal emails and messages.</p>
-        <button>Start Lesson</button>
+        <button onclick="startLesson('simpleEmails')">Start Lesson</button>
       </div>
 
       <!-- A2 LESSONS -->
@@ -310,11 +309,16 @@
   </div>
 </section>
 
+<?php require "../INC/footer.php" ?>
 
-<?php
-        require "../INC/footer.php"
-    ?>
-    <script src="js/darkmode.js"></script>
-    <script src="js/nav.js"></script>
-    </body>
+<script src="js/darkmode.js"></script>
+<script src="js/nav.js"></script>
+<script>
+  // Function to start a lesson
+  function startLesson(lessonKey) {
+    localStorage.setItem('readingLessonNav', lessonKey);
+    window.location.href = 'workreading.php';
+  }
+</script>
+</body>
 </html>

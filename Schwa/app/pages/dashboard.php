@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Mon Profil</title>
     <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="css/darkmode.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <!-- <link rel="stylesheet" href="css/profile.css"> -->
     <link rel="stylesheet" href="css/grammar.css">
+    <link rel="stylesheet" href="css/darkmode.css">
 </head>
 <body>
     <?php require "../INC/hearder2.php"; ?>
@@ -18,7 +18,7 @@
         <div class="profile-section">
             <div class="profile-header">
                 <div class="profile-photo-wrapper">
-                    <img src="../../public/IMG/default-avatar.jpg" alt="Photo de profil" id="profileImage" class="profile-photo">
+                    <img src="../../public/IMG/logo.png" alt="Photo de profil" id="profileImage" class="profile-photo">
                     <div class="photo-overlay">
                         <label for="photoUpload" class="upload-label">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -52,14 +52,14 @@
                     <div class="stat-icon">✅</div>
                     <div class="stat-info">
                         <h3>12</h3>
-                        <p>Leçons Terminées</p>
+                        <p>Leçons validées</p>
                     </div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">📚</div>
                     <div class="stat-info">
                         <h3>5</h3>
-                        <p>En Cours</p>
+                        <p>Leçons Non validées</p>
                     </div>
                 </div>
                 <div class="stat-card">
@@ -74,7 +74,7 @@
 
         <!-- Progression par niveau -->
         <div class="progress-section">
-            <h3 class="section-title">Progression du Niveau B1</h3>
+            <h3 class="section-title">Progression du Niveau <?= $_SESSION["auth"]["niveau"] ;?></h3>
             <div class="progress-bar-wrapper">
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 65%;">
@@ -87,7 +87,7 @@
 
         <!-- Leçons en cours -->
         <div class="lessons-section">
-            <h3 class="section-title">Leçons en Cours</h3>
+            <h3 class="section-title">Dernieres Leçons</h3>
             <div class="lessons-grid">
                 <div class="lesson-card-dashboard ongoing">
                     <div class="lesson-header">

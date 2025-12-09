@@ -1,0 +1,104 @@
+/* Reading-specific styles */
+
+.reading-box {
+    background: linear-gradient(135deg, #f9fafb, #ffffff);
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    line-height: 1.8;
+    font-size: 16px;
+    color: #1f2937;
+  }
+  
+  .reading-box p {
+    margin-bottom: 16px;
+  }
+  
+  .reading-box strong {
+    color: #3b82f6;
+    font-size: 18px;
+  }
+  
+  .reading-box em {
+    color: #6366f1;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .reading-box br {
+    margin-bottom: 8px;
+  }
+  
+  /* Vocabulary Grid */
+  .vocabulary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  
+  .vocab-item {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border: 2px solid #93c5fd;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .vocab-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+    border-color: #3b82f6;
+  }
+  
+  .vocab-word {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 8px;
+  }
+  
+  .vocab-translation {
+    font-size: 15px;
+    color: #6b7280;
+    font-style: italic;
+  }
+  
+  /* Reading text highlighting */
+  .reading-box ul,
+  .reading-box ol {
+    margin-left: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .reading-box li {
+    margin-bottom: 8px;
+    padding-left: 8px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .vocabulary-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .reading-box {
+      padding: 20px;
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .vocab-item {
+      padding: 12px;
+    }
+    
+    .vocab-word {
+      font-size: 16px;
+    }
+    
+    .vocab-translation {
+      font-size: 14px;
+    }
+  }

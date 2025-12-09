@@ -1,22 +1,18 @@
-<?php
-    session_start();
-?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workpage</title>
+    <title>Reading Workpage</title>
     <link rel="icon" href="/public/IMG/minilogo.png" type="image/png" style="border-radius: 50%;">
-
     <link rel="stylesheet" href="css/grammar.css">
     <link rel="stylesheet" href="css/darkmode.css">
     <link rel="stylesheet" href="css/workpage.css">
+    <link rel="stylesheet" href="css/reading-workpage.css">
 </head>
 <body>
-<?php
-        require "../INC/hearder2.php";
-?>
+<?php require "../INC/hearder2.php"; ?>
 
 <div class="work-container">
     <div class="tabs">
@@ -24,40 +20,41 @@
       <button id="btnExercise" class="tab">📊 Exercices</button>
     </div>
 
+    <!-- LESSON VIEW -->
     <section id="lessonView" class="view active">
       <div class="card">
-        <span class="badge" id="lessonBadge">Grammar</span>
+        <span class="badge" id="lessonBadge">Reading</span>
         
         <div class="lesson-header">
           <div>
-            <h1 id="lessonTitle">Present Perfect Tense</h1>
-            <p class="subtitle" id="lessonDescription">Learn how to express experiences and actions connected to the present</p>
+            <h1 id="lessonTitle">Simple Dialogues</h1>
+            <p class="subtitle" id="lessonDescription">Read short conversations between people in everyday situations</p>
           </div>
           
           <div class="circle-progress">
-            <div class="circle" id="lessonLevel">B1</div>
+            <div class="circle" id="lessonLevel">A1</div>
             <p class="circle-label">niveau</p>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <h2 class="section-title">📖 Structure</h2>
+        <h2 class="section-title">📖 Reading Text</h2>
         
-        <div class="structure-box" id="structureBox">
-          <p><b>Subject</b> + <b class="blue">have/has</b> + <b class="indigo">past participle</b></p>
+        <div class="reading-box" id="readingText">
+          <!-- Text content will be loaded here -->
         </div>
 
-        <h3 class="subtitle2">✨ Exemples</h3>
+        <h3 class="subtitle2">📚 Vocabulary</h3>
         
-        <div id="examplesContainer">
-          <!-- Examples -->
+        <div id="vocabularyContainer" class="vocabulary-grid">
+          <!-- Vocabulary items will be loaded here -->
         </div>
 
         <div class="remember">
-          <h3>💡 À retenir</h3>
-          <ul id="notesList">
-            <!-- Notes  -->
+          <h3>💡 Comprehension Tips</h3>
+          <ul id="comprehensionTips">
+            <!-- Tips will be loaded here -->
           </ul>
         </div>
 
@@ -67,11 +64,11 @@
       </div>
     </section>
 
-    <!-- Exercise -->
+    <!-- EXERCISE VIEW -->
     <section id="exerciseView" class="view">
       <div class="card">
-        <h2>Exercice <span id="currentQuestionNum">1</span> sur <span id="totalQuestions">3</span></h2>
-        <p class="subtitle">Present Perfect Practice</p>
+        <h2>Exercice <span id="currentQuestionNum">1</span> sur <span id="totalQuestions">5</span></h2>
+        <p class="subtitle">Comprehension Questions</p>
 
         <div class="stats">
           <div class="counter green">
@@ -83,20 +80,21 @@
             <p id="timerDisplay">0:00</p>
           </div>
         </div>
+      </div>
 
       <div class="card">
         <span class="badge purple">Choix Multiple</span>
         
         <h3 id="questionText" class="question">
-          
+          <!-- Question will be loaded here -->
         </h3>
 
         <div id="optionsContainer" class="options">
-          <!-- Options -->
+          <!-- Options will be loaded here -->
         </div>
 
         <div id="explanationBox" class="explanation hidden">
-          <!-- Explication -->
+          <!-- Explanation will be loaded here -->
         </div>
 
         <div class="buttons-row">
@@ -122,14 +120,9 @@
     </section>
   </div>
 
+<?php require "../INC/footer.php"; ?>
 
-  <?php
-        require "../INC/footer.php";
-    ?>
-
-    <script src="js/darkmode.js"></script>
-    <script src="js/workpage.js"></script>
-    <script src="js/worknav.js"></script>
-    <script src="js/badgeAPI.js"></script>
+<script src="js/darkmode.js"></script>
+<script src="js/readingwork.js"></script>
 </body>
 </html>

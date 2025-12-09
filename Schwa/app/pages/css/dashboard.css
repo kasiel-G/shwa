@@ -10,7 +10,11 @@
     color: #222;
     min-height: 100vh;
   }
-  
+  .profile-name {
+    font-weight: 600;
+    color: #11468F;
+    font-size: 1.2vw !important;
+  }
   .dashboard-container {
     max-width: 1200px;
     margin: 0 auto;

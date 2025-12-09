@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
+    <title>Grammar</title>
     <link rel="stylesheet" href="css/grammar.css">
     <link rel="stylesheet" href="css/darkmode.css">
 </head>
@@ -35,7 +35,7 @@
         <span class="lesson-level">A1</span>
         <h3>Verb "to be"</h3>
         <p>Master the foundation of English: am, is, are. Essential for introducing yourself and describing things.</p>
-        <button id="toBe">Start Lesson</button>
+        <button onclick="store('toBe')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
@@ -43,14 +43,14 @@
         <span class="lesson-level">A1</span>
         <h3>Simple Present Tense</h3>
         <p>Learn how to use verbs in the present tense for daily routines and habits.</p>
-        <button id="simplePresent">Start Lesson</button>
+        <button id="simplePresent" onclick="store('simplePresent')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Articles (a, an, the)</h3>
         <p>Understand when to use "a", "an", and "the" correctly in sentences.</p>
-        <button id="articles">Start Lesson</button>
+        <button id="articles" onclick="store('articles')">Start Lesson</button>
       </div>
 
       <!-- <div class="lesson-card" data-level="A1">
@@ -64,21 +64,21 @@
         <span class="lesson-level">A1</span>
         <h3>Plural Forms</h3>
         <p>Discover how to make nouns plural: regular and irregular forms.</p>
-        <button id="plurals">Start Lesson</button>
+        <button id="plurals" onclick="store('plurals')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Basic Questions</h3>
         <p>Ask questions using What, Where, When, Who, Why, and How.</p>
-        <button id="basicQuestions">Start Lesson</button>
+        <button id="basicQuestions" onclick="store('basicQuestions')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>There is / There are</h3>
         <p>Learn to describe what exists or is present in a place.</p>
-        <button id="existOrnot">Start Lesson</button>
+        <button id="existOrnot" onclick="store('existOrnot')">Start Lesson</button>
       </div>
 
       <!-- A2 LESSONS -->
@@ -86,35 +86,35 @@
         <span class="lesson-level">A2</span>
         <h3>Past Simple Tense</h3>
         <p>Understand how to describe past actions and experiences clearly.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('pastSimple')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
         <h3>Present Continuous</h3>
         <p>Express actions happening right now using the -ing form.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('presentContinuous')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
         <h3>Future Simple (will)</h3>
         <p>Talk about future plans, predictions, and spontaneous decisions.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('futurSimple')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
         <h3>Comparatives & Superlatives</h3>
         <p>Learn how to compare things, people, and ideas effectively.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('comparatives')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="A2">
         <span class="lesson-level">A2</span>
         <h3>Prepositions of Time</h3>
         <p>Master in, on, at for times, days, and dates.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('prepositionsTime')">Start Lesson</button>
       </div>
 
       <!-- <div class="lesson-card" data-level="A2">
@@ -135,7 +135,7 @@
         <span class="lesson-level">A2</span>
         <h3>Possessive Adjectives</h3>
         <p>Show ownership using my, your, his, her, its, our, their.</p>
-        <button>Start Lesson</button>
+        <button onclick="store('possessiveAdjectives')">Start Lesson</button>
       </div>
 
       <!-- B1 LESSONS -->
@@ -144,7 +144,7 @@
         <h3>Present Perfect</h3>
         <p>Explore how to talk about experiences and events connected to the present.</p>
         <!-- <a href="workpage.php">trait_exists</a> -->
-        <button id="presentPerfect">Start Lesson</button>
+        <button id="presentPerfect" onclick="store('presentPerfect')">Start Lesson</button>
       </div>
 
       <div class="lesson-card" data-level="B1">

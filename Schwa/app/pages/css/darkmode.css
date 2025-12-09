@@ -84,8 +84,14 @@
     /* color: #e2e8f0; */
     background: #1e293b;
   }
-  body.dark-mode .profile-dropdown a,button,span {
+  body.dark-mode .profile-dropdown a,button{
+    color:  #e2e8f0;
+  }
+  body.dark-mode .profile-name {
     color: #e2e8f0;
+  }
+  body.dark-mode .profile-dropdown #logout{
+    color: #f87171;
   }
   body.dark-mode .profile-dropdown a:hover,
   body.dark-mode .profile-dropdown button:hover {

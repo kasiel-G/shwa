@@ -3,12 +3,58 @@
     if (isset($_POST["logout"])) {
         logout();
     }
+    function navModifier(){
+        $uri = $_SERVER['REQUEST_URI'];
+        $segments = explode('/', $uri);
+        $lastSegment = end($segments);
+        $nav = '';
+        $navname = '';
+        switch ($lastSegment) {
+            case 'workpage.php':
+                $nav = 'grammar.php';
+                $navname = 'Grammar';
+                
+            break;
+
+            case 'workvocabulary.php':
+                $nav = 'vocabulary.php';
+                $navname = 'Vocabulary';
+
+            break;
+
+            case 'listening.php':
+                $nav = 'listening.php';
+                $navname = 'Listening';
+
+            break;
+
+            case 'workreading.php':
+                $nav = 'reading.php';
+                $navname = 'Reading';
+
+            break;
+
+            default:
+                $nav = '';
+                $navname = '';
+                break;
+        }
+        return [$lastSegment, $nav, $navname];
+    }
+
+    list($lastSegment, $nav, $navname) = navModifier();
+    $allowedPage =['workpage.php', 'workreading.php', 'worklistening.php', 'workvocabulary.php'];
+    $showLink = in_array($lastSegment,$allowedPage)
 ?>
 <header>
         <img src="../../public/IMG/logo.png" alt="logo">
         <nav>
             <ul>
-                <!-- <li><a href="">Profile</a></li> -->
+                <?php if ($showLink): ?>
+                    <li><a href="<?= $nav ;?>"><?= $navname ;?></a></li>
+                <?php else : ?>
+                    <!-- <li><a href="<?= $nav ;?>"><?= $navname ;?></a></li> -->
+                <?php endif; ?>
                 <li><a href="accueil.php">lessons</a></li>
                 <li><a href="dashboard.php">Dashboard</a></li>
             </ul>

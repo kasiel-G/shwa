@@ -1,4 +1,66 @@
-<?php 
+ let status = '';
+      alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
+
+      if (score > 65) {
+        status = 'valide';
+      } else {
+        status = 'non valide';
+      }
+      resetTimer();
+      loadQuestion();
+      updateStats();
+      
+      
+      fetch('../pages/save_score.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: currentLesson,
+          category: "Grammar",
+          level: Grammar[currentLesson].lesson.level,
+          score: score,
+          time: totalSeconds,
+          status: status,
+          date: new Date().toISOString()
+        })
+      })
+      .then(res => res.text())
+      .then(data => console.log("resultat envoyer :", data))
+      .catch(err => console.log("erreur d'envoie", err))
+
+
+
+
+
+
+      $status = $data["status"];
+
+try {
+    $sql = "INSERT INTO exercices (title, category, level, points, time, date, user_id, status)
+            VALUES (:title, :category, :level, :points, :time, :date_value, :user_id, :status)";
+
+    $stmt = $conn->prepare($sql);
+
+    $stmt->execute([
+        ":title" => $title,
+        ":category" => $category,
+        ":level" => $level,
+        ":points" => $score,
+        ":time" => $time,
+        ":date_value" => $date,
+        ":status" => $status,
+        ":user_id" => $userId
+    ]);
+
+
+
+
+
+
+
+    <?php 
 session_start();
 
 // Vérifier si l'utilisateur est connecté
@@ -7,7 +69,7 @@ if (!isset($_SESSION["auth"]["id"])) {
     exit;
 }
 
-require_once "../../router/Dbconnection.php";
+require "../router/Dbconnection.php";
 $conn = connection_db();
 $userId = $_SESSION["auth"]["id"];
 

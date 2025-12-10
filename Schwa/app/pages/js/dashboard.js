@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         profileImage.style.transform = 'scale(1)';
                     }, 200);
 
-                    // Ici vous pouvez ajouter du code pour uploader l'image vers le serveur
+                    // Upload l'image vers le serveur
                     uploadProfilePhoto(file);
                 };
 
@@ -69,20 +69,29 @@ document.addEventListener('DOMContentLoaded', function() {
 // Fonction pour uploader la photo vers le serveur
 function uploadProfilePhoto(file) {
     const formData = new FormData();
-    formData.append('profile_photo', file);
+    formData.append('file', file); // CORRECTION: 'file' au lieu de 'profile_photo'
 
-    // Afficher un indicateur de chargement
     const loadingIndicator = document.createElement('div');
     loadingIndicator.className = 'upload-loading';
     loadingIndicator.innerHTML = '<div class="spinner"></div>';
     document.querySelector('.profile-photo-wrapper').appendChild(loadingIndicator);
 
     // Envoi au serveur via AJAX
-    fetch('update_profile_photo.php', {
+    fetch('updatePDP.php', {
         method: 'POST',
         body: formData
     })
-    .then(response => response.json())
+    .then(response => {
+        // Debug: voir la réponse brute
+        return response.text().then(text => {
+            console.log('Réponse brute du serveur:', text);
+            try {
+                return JSON.parse(text);
+            } catch(e) {
+                throw new Error('Réponse invalide: ' + text.substring(0, 100));
+            }
+        });
+    })
     .then(data => {
         // Retirer l'indicateur de chargement
         loadingIndicator.remove();
@@ -90,8 +99,13 @@ function uploadProfilePhoto(file) {
         if (data.success) {
             // Afficher un message de succès
             showNotification('Photo de profil mise à jour avec succès!', 'success');
+            
+            // Mettre à jour l'image avec le nouveau chemin
+            if (data.photoPath) {
+                document.getElementById('profileImage').src = data.photoPath;
+            }
         } else {
-            showNotification('Erreur lors de la mise à jour de la photo', 'error');
+            showNotification(data.message || 'Erreur lors de la mise à jour de la photo', 'error');
         }
     })
     .catch(error => {

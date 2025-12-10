@@ -115,7 +115,7 @@ const simplePresent = new Lesson(
 
 // A1, Articles
 const articles = new Lesson(
-  'A2',
+  'A1',
   'Articles: A, An, The',
   'Learn when to use indefinite articles (a, an) and the definite article (the)',
   'Grammar',
@@ -1388,42 +1388,68 @@ const Grammar = {
 
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;
+      let test = '';
+      
+      if (score > 65) {
+        test = 'valide';
+      } else {
+        test = 'non valide';
+      }
 
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
       
-      resetTimer();
-      loadQuestion();
-      updateStats();
-      
-      localStorage.removeItem("lessonNav");
-      
-      fetch('save_score.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
+      // Préparer les données
+      const dataToSend = {
           title: currentLesson,
           category: "Grammar",
           level: Grammar[currentLesson].lesson.level,
           score: score,
           time: totalSeconds,
+          status: test,
           date: new Date().toISOString()
-        })
-      })
-      .then(res => res.text())
-      .then(data => console.log("resultat envoyer :", data))
-      .catch(err => console.log("erreur d'envoie", err))
+      };
       
+      console.log("Envoi des données:", dataToSend);
+      
+      // Envoyer les données
+      fetch('./save_score.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSend)
+      })
+      .then(res => {
+          console.log("Statut de la réponse:", res.status);
+          if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+      })
+      .then(data => {
+          console.log("Réponse du serveur:", data);
+          if (data.success) {
+              console.log("Score enregistré avec succès !");
+          } else {
+              alert("Erreur: " + (data.error || "Erreur inconnue"));
+          }
+      })
+      .catch(err => {
+          console.error("Erreur d'envoi:", err);
+          alert("Erreur lors de l'enregistrement du score: " + err.message);
+      });
+      
+      // Réinitialiser
+      localStorage.removeItem("lessonNav");
       currentQuestion = 0;
       score = 0;
       correct = 0;
       incorrect = 0;
+      resetTimer();
       switchView('lesson');
-
+      
     }
   });
-
   function updateStats() {
     document.getElementById('scoreValue').textContent = score;
     document.getElementById('correctCount').textContent = correct;

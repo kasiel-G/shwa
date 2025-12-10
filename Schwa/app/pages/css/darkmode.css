@@ -1,110 +1,264 @@
 .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 5%;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    padding: 10px 0;
-    width: 160px;
-    animation: fadeIn 0.2s ease;
-    z-index: 20;
-  }
-  
-  .dropdown-menu a,
-  .dropdown-menu button {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 10px 15px;
-    border: none;
-    background: none;
-    color: #11468F;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .dropdown-menu a:hover,
-  .dropdown-menu button:hover {
-    background-color: #f2f5ff;
-  }
-  
-  /* Mode sombre global */
-  body.dark-mode {
-    background: #0f172a;
-    color: #e2e8f0;
-  }
-  
-  body.dark-mode header {
-    background: #1e293b;
-    box-shadow: none;
-  }
-  
-  body.dark-mode nav ul li a {
-    color: #e2e8f0;
-  }
-  
-  body.dark-mode nav ul li a:hover {
-    background: #334155;
-  }
-  
-  body.dark-mode .lessonbox {
-    background: #1e293b;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  }
-  
-  body.dark-mode .lessonbox h2 {
-    color: #60a5fa;
-  }
-  
-  body.dark-mode .lessonbox p {
-    color: #cbd5e1;
-  }
-  
-  body.dark-mode .lessonbox button {
-    background: #334155;
-  }
-  
-  body.dark-mode .lessonbox button:hover {
-    background: #2563eb;
-  }
-  
-  body.dark-mode footer {
-    background: #1e293b;
-  }
-  body.dark-mode .lesson-card{
-  background-color: #1e293b;
-  } 
-  body.dark-mode .lesson-card p{
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 5%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 10px 0;
+  width: 160px;
+  animation: fadeIn 0.2s ease;
+  z-index: 20;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: none;
+  color: #11468F;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #f2f5ff;
+}
+
+/* ========== MODE SOMBRE GLOBAL ========== */
+body.dark-mode {
+  background: #0f172a;
   color: #e2e8f0;
-  }
-  body.dark-mode .profile-dropdown {
-    /* color: #e2e8f0; */
-    background: #1e293b;
-  }
-  body.dark-mode .profile-dropdown a,button{
-    color:  #e2e8f0;
-  }
-  body.dark-mode .profile-name {
-    color: #e2e8f0;
-  }
-  body.dark-mode .profile-dropdown #logout{
-    color: #f87171;
-  }
-  body.dark-mode .profile-dropdown a:hover,
-  body.dark-mode .profile-dropdown button:hover {
-    /* text-decoration: underline #60a5fa; */
-    background: #11468F;
-  }
-  body.dark-mode .profile-dropdown #logout:hover {
-    /* text-decoration: underline #60a5fa; */
-    background: #11468F;
-  }
-  /* Animation du dropdown */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
+}
+
+body.dark-mode header {
+  background: #1e293b;
+  box-shadow: none;
+}
+
+body.dark-mode nav ul li a {
+  color: #e2e8f0;
+}
+
+body.dark-mode nav ul li a:hover {
+  background: #334155;
+}
+
+body.dark-mode .lessonbox {
+  background: #1e293b;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .lessonbox h2 {
+  color: #60a5fa;
+}
+
+body.dark-mode .lessonbox p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .lessonbox button {
+  background: #334155;
+}
+
+body.dark-mode .lessonbox button:hover {
+  background: #2563eb;
+}
+
+body.dark-mode footer {
+  background: #1e293b;
+}
+
+body.dark-mode .lesson-card {
+  background-color: #1e293b;
+} 
+
+body.dark-mode .lesson-card p {
+  color: #e2e8f0;
+}
+
+body.dark-mode .profile-dropdown {
+  background: #1e293b;
+}
+
+body.dark-mode .profile-dropdown a,
+body.dark-mode .profile-dropdown button {
+  color: #e2e8f0;
+}
+
+body.dark-mode .profile-name {
+  color: #e2e8f0;
+}
+
+body.dark-mode .profile-dropdown #logout {
+  color: #f87171;
+}
+
+body.dark-mode .profile-dropdown a:hover,
+body.dark-mode .profile-dropdown button:hover {
+  background: #11468F;
+}
+
+body.dark-mode .profile-dropdown #logout:hover {
+  background: #11468F;
+}
+
+/* ========== MODE SOMBRE DASHBOARD ========== */
+
+/* Background général */
+body.dark-mode .dashboard-container {
+  background: transparent;
+}
+
+/* Section Profil */
+body.dark-mode .profile-section {
+  background: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .profile-name {
+  color: #60a5fa !important;
+}
+
+body.dark-mode .profile-email {
+  color: #cbd5e1;
+}
+
+body.dark-mode .profile-photo {
+  border-color: #60a5fa;
+}
+
+/* Statistiques */
+body.dark-mode .stat-card {
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .stat-card:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Section Progression */
+body.dark-mode .progress-section {
+  background: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .section-title {
+  color: #60a5fa;
+}
+
+body.dark-mode .progress-bar {
+  background: #334155;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .progress-description {
+  color: #cbd5e1;
+}
+
+/* Section Leçons */
+body.dark-mode .lessons-section {
+  background: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .lesson-card-dashboard {
+  background: #334155;
+  border-left-color: #60a5fa;
+}
+
+body.dark-mode .lesson-card-dashboard:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .lesson-card-dashboard h4 {
+  color: #60a5fa;
+}
+
+body.dark-mode .lesson-category {
+  color: #cbd5e1;
+}
+
+body.dark-mode .lesson-progress-bar {
+  background: #1e293b;
+}
+
+body.dark-mode .lesson-progress-fill {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+
+body.dark-mode .lesson-progress-badge {
+  background: #3b82f6;
+}
+
+body.dark-mode .continue-btn {
+  background: #3b82f6;
+}
+
+body.dark-mode .continue-btn:hover {
+  background: #2563eb;
+}
+
+/* Leçons terminées */
+body.dark-mode .completed-list {
+  background: transparent;
+}
+
+body.dark-mode .completed-item {
+  background: #334155;
+}
+
+body.dark-mode .completed-item:hover {
+  background: #475569;
+}
+
+body.dark-mode .completed-info h4 {
+  color: #e2e8f0;
+}
+
+body.dark-mode .category-tag {
+  background: #1e293b;
+  color: #60a5fa;
+}
+
+body.dark-mode .date-tag {
+  color: #94a3b8;
+}
+
+/* Section Badges et Réalisations */
+body.dark-mode .achievements-section {
+  background: #1e293b;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .badge-item.earned {
+  background: linear-gradient(135deg, #334155, #475569);
+  border-color: #10b981;
+}
+
+body.dark-mode .badge-item.locked {
+  background: #334155;
+  border-color: #475569;
+  opacity: 0.5;
+}
+
+body.dark-mode .badge-item p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .badge-item.locked p {
+  color: #64748b;
+}
+
+/* Animation du dropdown */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

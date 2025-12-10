@@ -1,13 +1,13 @@
 <?php
     function getUserProfilePhoto($userId, $conn = null) {
-        $defaultPhoto = "../public/IMG/logo.png";
+        $defaultPhoto = "../../public/IMG/logo.png";
         
         if (empty($userId)) {
             return $defaultPhoto;
         }
         
         try {
-            // Si pas de connexion fournie, en créer une
+            
             if ($conn === null) {
                 require_once __DIR__ . '/Dbconnection.php';
                 $conn = connection_db();
@@ -27,7 +27,7 @@
                 $photoPath = __DIR__ . '/../public/' . $result['photo'];
                 if (file_exists($photoPath)) {
                     // Chemin relatif pour l'affichage HTML
-                    return '../public/' . $result['photo'];
+                    return '../../public/' . $result['photo'];
                 }
             }
             
@@ -38,15 +38,9 @@
             return $defaultPhoto;
         }
     }
-    
-    /**
-     * Version simplifiée qui utilise la session
-     * @param PDO|null $conn - Connexion à la base de données (optionnelle)
-     * @return string - Chemin vers la photo de profil
-     */
     function getSessionUserPhoto($conn = null) {
         if (!isset($_SESSION["auth"]["id"])) {
-            return "../public/IMG/logo.png";
+            return "../../public/IMG/logo.png";
         }
         
         return getUserProfilePhoto($_SESSION["auth"]["id"], $conn);

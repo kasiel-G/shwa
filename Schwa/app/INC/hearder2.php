@@ -1,8 +1,15 @@
 <?php
     require_once '../Models/userlogin.php';
+    require '../../router/get_pdp.php';
     if (isset($_POST["logout"])) {
         logout();
     }
+    // $defaultPhoto = getUserProfilePhoto($_SESSION["auth"]["id"]);
+    if (!isset($userPhoto)) {
+        require_once '../../router/get_pdp.php';
+        $userPhoto = getSessionUserPhoto();
+    }
+    
     function navModifier(){
         $uri = $_SERVER['REQUEST_URI'];
         $segments = explode('/', $uri);
@@ -60,7 +67,7 @@
             </ul>
         </nav>
         <div class="profile">
-        <img src="../../public/IMG/minilogo.png" alt="">
+        <img src="<?= htmlspecialchars($userPhoto) ;?>" alt="pdp">
         <span class="profile-name" onclick="toggleProfileMenu()"><?=  $_SESSION["auth"]["nom"] . " ". $_SESSION["auth"]["prenom"]; ?></span>
         <div id="profile-menu" class="profile-dropdown">
           <a href="">View Profile</a>

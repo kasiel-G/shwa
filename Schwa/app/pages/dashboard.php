@@ -99,6 +99,7 @@
                     <div class="lesson-progress-bar">
                         <div class="lesson-progress-fill" style="width: 60%;"></div>
                     </div>
+                    <button class="continue-btn" onclick="location.href='grammar.php'">Continuer</button>
                 </div>
 
                 <div class="lesson-card-dashboard ongoing">

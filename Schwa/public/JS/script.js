@@ -54,3 +54,7 @@ function toggleProfileMenu() {
       menu.style.display = 'none';
     }
   });
+  let redi = document.getElementById('appr')
+  redi.addEventListener('click', ()=>{
+    window.Location = "app/pages/apropos.php";
+  })

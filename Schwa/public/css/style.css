@@ -554,3 +554,985 @@ section{
 .active{
     display: flex !important;
 }
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header img {
+    width: 3.5vw;
+    height: 3.5vw;
+    margin: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+header img:hover {
+    transform: scale(1.1);
+}
+
+nav {
+    width: auto;
+}
+
+ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.rem;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #11468F;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #EEEEEE !important;
+    background-color: #11468F;
+}
+
+ul li .conn {
+    background-color: #da1212e0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 700;
+    color: #EEEEEE;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+ul li .conn:hover {
+    color: #EEEEEE;
+    background-color: #11468F;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#level_select{
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 2rem;
+    display: none;
+}
+
+#level_select a{
+    color: #11468F;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center !important;
+    position: relative;
+    left: 20%;
+}
+
+.level-selection {
+    margin: 1.5rem 0;
+}
+
+.level-selection h3 {
+    color: #11468F;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.level-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.level-option {
+    position: relative;
+}
+
+.level-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.level-option label {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: white;
+}
+
+.level-option input[type="radio"]:checked + label {
+    border-color: #11468F;
+    background: #EFF6FF;
+}
+
+.level-option label:hover {
+    border-color: #11468F;
+    transform: translateX(5px);
+}
+
+.level-emoji {
+    font-size: 1.5rem;
+    margin-right: 12px;
+}
+
+.level-info {
+    flex: 1;
+}
+
+.level-name {
+    font-weight: 600;
+    color: #11468F;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.level-desc {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+footer {
+    width: 100%;
+    background-color: #11468F;
+    color: #EEEEEE;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+}
+
+footer .links {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer .links a {
+    text-decoration: none;
+    color: #EEEEEE;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+footer .links a:hover {
+    color: #DA1212;
+    transform: scale(1.1);
+}
+
+footer .links p {
+    margin: 0 10px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    top: -2px;
+    color: #EEEEEE;
+}
+
+footer p {
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #EEEEEE;
+    opacity: 0.8;
+}
+
+/* main */
+section{
+    width: 80%;
+    margin: auto;
+}
+
+.welcome {
+    background: linear-gradient(135deg, #041562, #11468F, #3366FF);
+    width: 90%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3vw;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 2rem auto;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.welcome h1 {
+    font-size: 2.5rem;
+    color: #EEEEEE;
+    text-transform: uppercase;
+    margin: .5rem 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome p {
+    font-size: 1.4rem;
+    color: #EEEEEE;
+    font-weight: 500;
+    margin: 1rem 0;
+    line-height: 1.8;
+    max-width: 80%;
+}
+
+.welcome a {
+    text-decoration: none;
+    color: #EEEEEE;
+    background-color: #da1212e0;
+    padding: 15px 25px;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome a:hover {
+    background-color: #11468F;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.who{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.whobox{
+    margin-bottom: 1.5rem;
+}
+
+.whobox h2 {
+    font-size: 2rem;
+    color: #11468F;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.whobox p {
+    font-size: 1.2rem;
+    color: #333333;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.boxsec {
+    width: 30%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boxsec:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.boxsec img {
+    width: 100%;
+    height: 15vw;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.boxsec h3 {
+    font-size: 1.2rem;
+    color: #11468F;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.boxsec p {
+    font-size: 1.1rem;
+    color: #333333;
+    font-weight: 500;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.quote {
+    background: linear-gradient(135deg, #11468F, #DA1212);
+    color: #EEEEEE;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(218, 18, 18, 0.5), 0 0 20px rgba(17, 70, 143, 0.5);
+    animation: sparkle 3s infinite;
+    margin-top: 2vw;
+}
+
+.quote h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: poppins, sans-serif;
+    font-weight: 600;
+    text-shadow: 0 0 10px #DA1212, 0 0 20px #11468F;
+}
+
+.quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+    font-weight: 500;
+    text-shadow: 0 0 5px #EEEEEE, 0 0 10px #DA1212;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(218, 18, 18, 0.5), 0 0 25px rgba(17, 70, 143, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(218, 18, 18, 0.8), 0 0 35px rgba(17, 70, 143, 0.8);
+    }
+}
+
+/* modal */
+#modalContainer {
+    width: 30vw;
+    background-color: #3366fffd;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(46, 46, 46, 0.11);
+    z-index: 10;
+}
+
+.overlay{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.712);
+    z-index: 5;
+}
+
+#connForm{
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 2vw;
+    transition: 0.5s ease-in-out;
+}
+
+.formhead{
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #EEEEEE;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.formhead img{
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-group {
+    background: #F9FAFB;
+    border: 2px solid #E5E7EB;
+    border-radius: 20px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.input-group input, select {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1rem;
+    background: transparent;
+}
+
+.btn {
+    background-color: #11468F;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #EEEEEE;
+    transition: transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+#connForm p {
+    font-size: 0.9rem;
+    color: #041562;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#connForm p a {
+    color: #DA1212;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+#connForm p a:hover {
+    color: #11468F;
+}
+
+.btnlogin{
+    background-color: #11468F;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #EEEEEE;
+    transition: transform 0.2s;
+    width: 100%;   
+}
+
+.btnlogin:hover {
+    transform: scale(1.05);
+    background-color: #041562;
+}
+
+#inscriForm{
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 2vw;
+}
+
+#isncriForm .input-personal{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#inscriForm p{
+    font-size: 0.9rem;
+    color: #EEEEEE;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#inscriForm p a {
+    color: #041562;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+#inscriForm p a:hover {
+    color: #11468F;
+}
+
+.active{
+    display: flex !important;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MEDIA QUERIES
+======================================== */
+
+/* Tablettes et petits écrans (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+    section {
+        width: 90%;
+    }
+
+    .boxsec {
+        width: 45%;
+    }
+
+    .boxsec img {
+        height: 25vw;
+    }
+
+    .welcome h1 {
+        font-size: 2rem;
+    }
+
+    .welcome p {
+        font-size: 1.2rem;
+        max-width: 90%;
+    }
+
+    .welcome a {
+        font-size: 1.1rem;
+        padding: 12px 20px;
+    }
+
+    .quote h3 {
+        font-size: 1.7rem;
+    }
+
+    .quote p {
+        font-size: 1.1rem;
+    }
+
+    #modalContainer {
+        width: 50vw;
+    }
+
+    footer .links {
+        width: 70%;
+    }
+
+    footer .links a {
+        font-size: 1rem;
+    }
+}
+
+/* Tablettes en mode portrait (768px et moins) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px 3%;
+        flex-wrap: wrap;
+    }
+
+    header img {
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+    }
+
+    nav {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    ul {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    ul li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    ul li .conn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    section {
+        width: 95%;
+    }
+
+    .welcome {
+        width: 100%;
+        padding: 5vw;
+    }
+
+    .welcome h1 {
+        font-size: 1.8rem;
+    }
+
+    .welcome p {
+        font-size: 1rem;
+        max-width: 95%;
+    }
+
+    .welcome a {
+        font-size: 1rem;
+        padding: 12px 18px;
+    }
+
+    .whobox h2 {
+        font-size: 1.6rem;
+        margin: 1.5rem 0;
+    }
+
+    .whobox p {
+        font-size: 1rem;
+    }
+
+    .who {
+        flex-direction: column;
+    }
+
+    .boxsec {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .boxsec img {
+        height: 40vw;
+    }
+
+    .boxsec h3 {
+        font-size: 1.1rem;
+    }
+
+    .boxsec p {
+        font-size: 1rem;
+    }
+
+    .quote {
+        padding: 1.5rem;
+        margin-top: 4vw;
+    }
+
+    .quote h3 {
+        font-size: 1.5rem;
+    }
+
+    .quote p {
+        font-size: 1rem;
+    }
+
+    #modalContainer {
+        width: 80vw;
+        top: 50%;
+    }
+
+    #connForm, #inscriForm {
+        padding: 5vw;
+    }
+
+    .formhead {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formhead img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #level_select {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+
+    #level_select a {
+        left: 0;
+        text-align: center;
+    }
+
+    footer .links {
+        width: 90%;
+        flex-direction: column;
+    }
+
+    footer .links a {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
+
+    footer .links p {
+        display: none;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile (480px et moins) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 8px 2%;
+    }
+
+    header img {
+        width: 40px;
+        height: 40px;
+    }
+
+    ul li a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+
+    ul li .conn {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+
+    .welcome {
+        padding: 6vw;
+        margin: 1rem auto;
+    }
+
+    .welcome h1 {
+        font-size: 1.5rem;
+        margin: 0.3rem 0;
+    }
+
+    .welcome p {
+        font-size: 0.9rem;
+        margin: 0.8rem 0;
+        line-height: 1.6;
+    }
+
+    .welcome a {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+
+    .whobox h2 {
+        font-size: 1.4rem;
+        margin: 1rem 0;
+    }
+
+    .whobox p {
+        font-size: 0.9rem;
+    }
+
+    .boxsec {
+        padding: 0.8rem;
+    }
+
+    .boxsec img {
+        height: 50vw;
+    }
+
+    .boxsec h3 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .boxsec p {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .quote {
+        padding: 1rem;
+        margin-top: 5vw;
+    }
+
+    .quote h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .quote p {
+        font-size: 0.9rem;
+    }
+
+    #modalContainer {
+        width: 90vw;
+        top: 50%;
+    }
+
+    #connForm, #inscriForm {
+        padding: 6vw;
+        gap: 12px;
+    }
+
+    .formhead {
+        font-size: 0.9rem;
+    }
+
+    .formhead img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .input-group {
+        padding: 8px 12px;
+    }
+
+    .input-group input, select {
+        font-size: 0.9rem;
+    }
+
+    .btn, .btnlogin {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    #connForm p, #inscriForm p {
+        font-size: 0.85rem;
+    }
+
+    #level_select {
+        max-width: 95%;
+        padding: 1rem;
+    }
+
+    .level-selection h3 {
+        font-size: 1rem;
+    }
+
+    .level-option label {
+        padding: 10px 12px;
+    }
+
+    .level-emoji {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    .level-name {
+        font-size: 0.9rem;
+    }
+
+    .level-desc {
+        font-size: 0.75rem;
+    }
+
+    footer {
+        padding: 15px 0;
+    }
+
+    footer .links a {
+        font-size: 0.9rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+}
+
+/* Très petits écrans (320px et moins) */
+@media screen and (max-width: 320px) {
+    header img {
+        width: 35px;
+        height: 35px;
+    }
+
+    ul li a {
+        font-size: 0.8rem;
+        padding: 5px 8px;
+    }
+
+    .welcome h1 {
+        font-size: 1.3rem;
+    }
+
+    .welcome p {
+        font-size: 0.85rem;
+    }
+
+    .welcome a {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
+    .whobox h2 {
+        font-size: 1.2rem;
+    }
+
+    .boxsec h3 {
+        font-size: 0.95rem;
+    }
+
+    .boxsec p {
+        font-size: 0.85rem;
+    }
+
+    .quote h3 {
+        font-size: 1.1rem;
+    }
+
+    .quote p {
+        font-size: 0.85rem;
+    }
+
+    #modalContainer {
+        width: 95vw;
+    }
+
+    .formhead img {
+        width: 35px;
+        height: 35px;
+    }
+}

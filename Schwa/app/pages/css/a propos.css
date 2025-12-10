@@ -1,0 +1,345 @@
+/* Page À Propos - Styles */
+
+.apropos-hero {
+    background: linear-gradient(135deg, #041562, #11468F, #3366FF);
+    padding: 6rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #EEEEEE;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    color: #EEEEEE;
+    font-weight: 500;
+    opacity: 0.95;
+}
+
+.apropos-content {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Mission Section */
+.mission-section {
+    background: #f9f9f9;
+    padding: 3rem;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.mission-section h2 {
+    font-size: 2.5rem;
+    color: #11468F;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.mission-section p {
+    font-size: 1.2rem;
+    color: #333333;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Values Section */
+.values-section {
+    margin-bottom: 4rem;
+}
+
+.values-section h2 {
+    font-size: 2.5rem;
+    color: #11468F;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.value-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    color: #11468F;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.value-card p {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Features Section */
+.features-section {
+    margin-bottom: 4rem;
+}
+
+.features-section h2 {
+    font-size: 2.5rem;
+    color: #11468F;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateX(10px);
+}
+
+.feature-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #DA1212;
+    min-width: 80px;
+}
+
+.feature-content h3 {
+    font-size: 1.5rem;
+    color: #11468F;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feature-content p {
+    font-size: 1.1rem;
+    color: #666666;
+    line-height: 1.6;
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #11468F, #3366FF);
+    padding: 3rem;
+    border-radius: 15px;
+    margin-bottom: 4rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stats-section h2 {
+    font-size: 2.5rem;
+    color: #EEEEEE;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #EEEEEE;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #EEEEEE;
+    font-weight: 500;
+}
+
+/* Team Section */
+.team-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    color: #11468F;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.team-intro {
+    font-size: 1.2rem;
+    color: #666666;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #DA1212, #11468F);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-box h3 {
+    font-size: 2rem;
+    color: #EEEEEE;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.cta-box p {
+    font-size: 1.2rem;
+    color: #EEEEEE;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #EEEEEE;
+    color: #11468F;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .apropos-content {
+        width: 95%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .values-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-number {
+        min-width: auto;
+    }
+
+    .mission-section,
+    .cta-box {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .mission-section h2,
+    .values-section h2,
+    .features-section h2,
+    .stats-section h2,
+    .team-section h2 {
+        font-size: 1.8rem;
+    }
+}

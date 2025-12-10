@@ -1215,7 +1215,7 @@ const possessiveAdjectivesQuestions = [
   }
 ];
 // lesson array
-const lessonSystem = {
+const Grammar = {
   // A1 Lessons
   'toBe': { lesson: toBe, questions: toBeQuestions },
   'simplePresent': { lesson: simplePresent, questions: simplePresentQuestions },
@@ -1242,7 +1242,7 @@ const lessonSystem = {
   let incorrect = 0;
   let answered = false;
   let currentLesson = localStorage.getItem('lessonNav');
-  const questions = lessonSystem[currentLesson].questions;
+  const questions = Grammar[currentLesson].questions;
   // INITIALISATION
   document.addEventListener('DOMContentLoaded', () => {
     // presentPerfect.render();
@@ -1250,12 +1250,12 @@ const lessonSystem = {
     // simplePresent.render();
     // articles.render();
     // plurals.render();
-    if (!currentLesson || !lessonSystem[currentLesson]) {
+    if (!currentLesson || !Grammar[currentLesson]) {
       alert("Aucune leçon sélectionnée. Retour à l'accueil.");
       window.location.href = 'accueil.php';
       return; 
     }
-    lessonSystem[currentLesson].lesson.render();
+    Grammar[currentLesson].lesson.render();
     loadQuestion();
     updateStats();
   });
@@ -1321,7 +1321,7 @@ const lessonSystem = {
 
   function loadQuestion() {
 
-    const q = lessonSystem[localStorage.getItem('lessonNav')].questions[currentQuestion];
+    const q = Grammar[localStorage.getItem('lessonNav')].questions[currentQuestion];
     answered = false;
     
     document.getElementById('questionText').textContent = q.question;
@@ -1390,17 +1390,35 @@ const lessonSystem = {
       const seconds = totalSeconds % 60;
 
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
+      
+      resetTimer();
+      loadQuestion();
+      updateStats();
+      
+      localStorage.removeItem("lessonNav");
+      
+      fetch('save_score.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: currentLesson,
+          category: "Grammar",
+          level: Grammar[currentLesson].lesson.level,
+          score: score,
+          time: totalSeconds,
+          date: new Date().toISOString()
+        })
+      })
+      .then(res => res.text())
+      .then(data => console.log("resultat envoyer :", data))
+      .catch(err => console.log("erreur d'envoie", err))
+      
       currentQuestion = 0;
       score = 0;
       correct = 0;
       incorrect = 0;
-
-      resetTimer();
-      loadQuestion();
-      updateStats();
-
-      localStorage.removeItem("lessonNav");
-
       switchView('lesson');
 
     }

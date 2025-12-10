@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "../Models/userModel.php";
 require "../Models/userlogin.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && 
@@ -6,8 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
           $_POST['password'], $_POST['age'], $_POST['niveau'])) {
     
     $resp = create();
-    // $test = login();
-    // header("location:../../app/pages/accueil.php");
-    // exit();
+    $test = login();
+    header("location:../../app/pages/accueil.php");
+    exit();
 }
 ?>

@@ -16,23 +16,23 @@ document.addEventListener("DOMContentLoaded", () =>{
     
     
     switch (verif) {
-        case value: "A1"
+        case "A1" :
         level.style.background = couleurs.A1.couleur;
             break;
 
-        case value: "A2"
+        case "A2" :
         level.style.background = couleurs.A2.couleur;
             break;
 
-        case value: "B1"
+        case "B1" :
         level.style.background = couleurs.B1.couleur;
                 break;
 
-        case value: "B2"
+        case "B2" :
         level.style.background = couleurs.B2.couleur;
                 break;
 
-        case value: "C2"
+        case  "C2" :
         level.style.background = couleurs.A2.couleur;
                 break;
 

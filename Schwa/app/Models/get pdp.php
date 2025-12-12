@@ -7,7 +7,7 @@
         }
         
         try {
-            // Si pas de connexion fournie, en créer une
+            
             if ($conn === null) {
                 require_once __DIR__ . '/Dbconnection.php';
                 $conn = connection_db();
@@ -39,11 +39,6 @@
         }
     }
     
-    /**
-     * Version simplifiée qui utilise la session
-     * @param PDO|null $conn - Connexion à la base de données (optionnelle)
-     * @return string - Chemin vers la photo de profil
-     */
     function getSessionUserPhoto($conn = null) {
         if (!isset($_SESSION["auth"]["id"])) {
             return "../public/IMG/logo.png";

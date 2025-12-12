@@ -648,21 +648,69 @@ class ReadingLesson {
       loadQuestion();
     } else {
       stopTimer();
+
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds % 60;
+      let test = '';
       
+      if (score >= 50) {
+        test = 'valide';
+      } else {
+        test = 'non valide';
+      }
+
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
       
+      // Préparer les données
+      const dataToSend = {
+          title: currentLesson,
+          category: "Reading",
+          level: readingLessonSystem[currentLesson].lesson.level,
+          score: score,
+          time: totalSeconds,
+          status: test,
+          date: new Date().toISOString()
+      };
+      
+      console.log("Envoi des données:", dataToSend);
+      
+      // Envoyer les données
+      fetch('./save_score.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataToSend)
+      })
+      .then(res => {
+          console.log("Statut de la réponse:", res.status);
+          if (!res.ok) {
+              throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+      })
+      .then(data => {
+          console.log("Réponse du serveur:", data);
+          if (data.success) {
+              console.log("Score enregistré avec succès !");
+          } else {
+              alert("Erreur: " + (data.error || "Erreur inconnue"));
+          }
+      })
+      .catch(err => {
+          console.error("Erreur d'envoi:", err);
+          alert("Erreur lors de l'enregistrement du score: " + err.message);
+      });
+      
+      // Réinitialiser
+      localStorage.removeItem("readingLessonNav");
       currentQuestion = 0;
       score = 0;
       correct = 0;
       incorrect = 0;
       resetTimer();
-      loadQuestion();
-      updateStats();
-      localStorage.removeItem("readingLessonNav");
       switchView('lesson');
-    }
+          }
   });
   
   function updateStats() {

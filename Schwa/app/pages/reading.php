@@ -36,12 +36,12 @@
         <button onclick="startLesson('simpleDialogues')">Start Lesson</button>
       </div>
 
-      <div class="lesson-card" data-level="A1">
+      <!-- <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>
         <h3>Picture Stories</h3>
         <p>Follow simple narratives with images to support comprehension.</p>
         <button onclick="startLesson('pictureStories')">Start Lesson</button>
-      </div>
+      </div> -->
 
       <div class="lesson-card" data-level="A1">
         <span class="lesson-level">A1</span>

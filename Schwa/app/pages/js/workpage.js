@@ -139,7 +139,7 @@ const articles = new Lesson(
 );
 // A1, plural Form
 const plurals = new Lesson(
-  'A2',
+  'A1',
   'Plural Forms: Regular and Irregular',
   'Learn how to form regular and irregular plurals in English',
   'Grammar',

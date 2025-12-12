@@ -70,7 +70,7 @@
         <img src="<?= htmlspecialchars($userPhoto) ;?>" alt="pdp">
         <span class="profile-name" onclick="toggleProfileMenu()"><?=  $_SESSION["auth"]["nom"] . " ". $_SESSION["auth"]["prenom"]; ?></span>
         <div id="profile-menu" class="profile-dropdown">
-          <a href="">View Profile</a>
+          <!-- <a href="">View Profile</a> -->
           <a id="darkModeToggle">Dark Mode 🌙</a>
             <form method="POST">
                 <button type="submit" name="logout" class="logout-btn" id="logout">Logout</button>

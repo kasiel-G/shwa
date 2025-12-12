@@ -30,56 +30,47 @@
     <!-- Lesson cards -->
     <div class="lesson-grid" id="lessonGrid">
       <!-- A1 LESSONS -->
-      <div class="lesson-card" data-level="A1">
-        <span class="status-icon validated">✓</span>
-        <span class="lesson-level">A1</span>
-        <h3>Verb "to be"</h3>
-        <p>Master the foundation of English: am, is, are. Essential for introducing yourself and describing things.</p>
-        <button onclick="store('toBe')">Start Lesson</button>
-      </div>
+      <div class="lesson-card" data-level="A1" data-lesson="toBe">
+    <span class="lesson-level">A1</span>
+    <h3>Verb "to be"</h3>
+    <p>Master the foundation of English: am, is, are. Essential for introducing yourself and describing things.</p>
+    <button onclick="store('toBe')">Start Lesson</button>
+</div>
 
-      <div class="lesson-card" data-level="A1">
-      <span class="status-icon completed">✓</span>
-        <span class="lesson-level">A1</span>
-        <h3>Simple Present Tense</h3>
-        <p>Learn how to use verbs in the present tense for daily routines and habits.</p>
-        <button id="simplePresent" onclick="store('simplePresent')">Start Lesson</button>
-      </div>
+<div class="lesson-card" data-level="A1" data-lesson="simplePresent">
+    <span class="lesson-level">A1</span>
+    <h3>Simple Present Tense</h3>
+    <p>Learn how to use verbs in the present tense for daily routines and habits.</p>
+    <button onclick="store('simplePresent')">Start Lesson</button>
+</div>
 
-      <div class="lesson-card" data-level="A1">
-        <span class="lesson-level">A1</span>
-        <h3>Articles (a, an, the)</h3>
-        <p>Understand when to use "a", "an", and "the" correctly in sentences.</p>
-        <button id="articles" onclick="store('articles')">Start Lesson</button>
-      </div>
+<div class="lesson-card" data-level="A1" data-lesson="articles">
+    <span class="lesson-level">A1</span>
+    <h3>Articles (a, an, the)</h3>
+    <p>Understand when to use "a", "an", and "the" correctly in sentences.</p>
+    <button onclick="store('articles')">Start Lesson</button>
+</div>
 
-      <!-- <div class="lesson-card" data-level="A1">
-        <span class="lesson-level">A1</span>
-        <h3>Personal Pronouns</h3>
-        <p>Learn about I, you, he, she, it, we, they and how to use them properly.</p>
-        <button>Start Lesson</button>
-      </div> -->
+<div class="lesson-card" data-level="A1" data-lesson="plurals">
+    <span class="lesson-level">A1</span>
+    <h3>Plural Forms</h3>
+    <p>Discover how to make nouns plural: regular and irregular forms.</p>
+    <button onclick="store('plurals')">Start Lesson</button>
+</div>
 
-      <div class="lesson-card" data-level="A1">
-        <span class="lesson-level">A1</span>
-        <h3>Plural Forms</h3>
-        <p>Discover how to make nouns plural: regular and irregular forms.</p>
-        <button id="plurals" onclick="store('plurals')">Start Lesson</button>
-      </div>
+<div class="lesson-card" data-level="A1" data-lesson="basicQuestions">
+    <span class="lesson-level">A1</span>
+    <h3>Basic Questions</h3>
+    <p>Ask questions using What, Where, When, Who, Why, and How.</p>
+    <button onclick="store('basicQuestions')">Start Lesson</button>
+</div>
 
-      <div class="lesson-card" data-level="A1">
-        <span class="lesson-level">A1</span>
-        <h3>Basic Questions</h3>
-        <p>Ask questions using What, Where, When, Who, Why, and How.</p>
-        <button id="basicQuestions" onclick="store('basicQuestions')">Start Lesson</button>
-      </div>
-
-      <div class="lesson-card" data-level="A1">
-        <span class="lesson-level">A1</span>
-        <h3>There is / There are</h3>
-        <p>Learn to describe what exists or is present in a place.</p>
-        <button id="existOrnot" onclick="store('existOrnot')">Start Lesson</button>
-      </div>
+<div class="lesson-card" data-level="A1" data-lesson="existOrNot">
+    <span class="lesson-level">A1</span>
+    <h3>There is / There are</h3>
+    <p>Learn to describe what exists or is present in a place.</p>
+    <button onclick="store('existOrNot')">Start Lesson</button>
+</div>
 
       <!-- A2 LESSONS -->
       <div class="lesson-card" data-level="A2">

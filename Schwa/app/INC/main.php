@@ -1,8 +1,8 @@
 <section class="welcome">
     <h1>Bienvenue, welcome, tongasoa</h1>
     <p>Apprenez l'anglais gratuitement avec Schwa. Des leçons simples, <br>interactives et accessibles à tous.</p>
-    <!-- <a href="./app/pages/test.php" class="btn">Commencer maintenant</a> -->
 </section>
+
 <section class="who">
     <div class="whobox">
         <h2>Qui sommes-nous ?</h2>
@@ -30,6 +30,7 @@
     <p>Visez haut. Même si vous ratez, vous toucherez les étoiles.<br>
         L'apprentissage est un voyage, pas une destination.</p>
 </section>
+
 <section id="modalContainer">
     <!-- connection -->
     <div class="connexBox">
@@ -38,6 +39,25 @@
                 <img src="public/IMG/minilogo.png" alt="logo">
                 <h2>Bon retour</h2><span>🌱</span>
             </div>
+            
+            <?php
+            
+            $uri = $_SERVER['REQUEST_URI'];
+            $test = explode('?', $uri);
+
+            if (isset($test[1])) {
+                if ($test[1] === 'error=401') {
+                    echo '<div style="background-color: #fee2e2; border: 1px solid #ef4444; color: #991b1b; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;">';
+                    echo '⚠️ Mot de passe incorrect';
+                    echo '</div>';
+                } elseif ($test[1] === 'error=404') {
+                    echo '<div style="background-color: #fee2e2; border: 1px solid #ef4444; color: #991b1b; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;">';
+                    echo '⚠️ Email n\'existe pas';
+                    echo '</div>';
+                }
+            }
+            ?>
+            
             <div class="input-group">
                 <span>📧</span><input type="email" name="email" placeholder="Votre email" required>
             </div>
@@ -56,23 +76,32 @@
                 <span>🌱</span><h2>Rejoignez-nous</h2>
                 <img src="public/IMG/minilogo.png" alt="logo">
             </div>
+            
+            <?php
+            
+            if (isset($test[1]) && strpos($test[1], 'register_error=400') !== false) {
+                echo '<div style="background-color: #fee2e2; border: 1px solid #ef4444; color: #991b1b; padding: 10px; border-radius: 5px; margin-bottom: 15px; text-align: center;">';
+                echo '⚠️ Cette adresse email existe déjà';
+                echo '</div>';
+            }
+            ?>
             <div class="input-group">
-                <span>👤</span><input type="text" placeholder="Votre nom" name="nom" required><br>
+                <span>👤</span><input type="text" placeholder="Votre nom*" name="nom" required><br>
             </div>
             <div class="input-group">
-                <span>👤</span><input type="text" placeholder="Votre prenom" name="prenom" required>
+                <span>👤</span><input type="text" placeholder="Votre prenom*" name="prenom" required>
             </div>
             <div class="input-group">
                 <span>📅</span><input type="date" placeholder="Votre date de naissance" name="age" required min="1900-01-01" max="2007-12-31">
             </div>
             <div class="input-group">
-                <span>📧</span><input type="email" placeholder="Votre email" name="email" required>
+                <span>📧</span><input type="email" placeholder="Votre email*" name="email" required>
             </div>
             <div class="input-group">
-                <span>🔒</span><input type="password" placeholder="Votre mot de passe" name="password" id="mdp1" required>
+                <span>🔒</span><input type="password" placeholder="Votre mot de passe*" name="password" id="mdp1" required>
             </div>
             <div class="input-group">
-                <span>🔒</span><input type="password" placeholder="confirmer le mot de passe" id="mdp2" required>
+                <span>🔒</span><input type="password" placeholder="confirmer le mot de passe*" id="mdp2" required>
             </div>
             <div class="input-group">
                 <select name="niveau" id="niv">
@@ -84,18 +113,15 @@
                 </select>
             </div>
             <div class="unsure-level">
-                        <a href="#" onclick="alert('Conseil: Si vous hésitez, choisissez un niveau légèrement inférieur. Vous pourrez toujours progresser !'); return false;">
-                            ❓ Pas sûr de votre niveau ?
-                        </a>
-                    </div>
+                <a href="#" onclick="alert('Conseil: Si vous hésitez, choisissez un niveau légèrement inférieur. Vous pourrez toujours progresser !'); return false;">
+                    ❓ Pas sûr de votre niveau ?
+                </a>
+            </div>
             <button type="submit" class="btnlogin" id="btnLogin">S'inscrire 🚀</button>
             <p>En vous inscrivant, vous acceptez nos <a href="">conditions d'utilisation</a></p>
         </form>
     </div>
-   
-                   
-    </form>
 </section>
-<section id="overlay">
 
+<section id="overlay">
 </section>

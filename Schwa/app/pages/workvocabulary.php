@@ -124,5 +124,6 @@
 
 <script src="js/darkmode.js"></script>
 <script src="js/workvocabulary.js"></script>
+<script src="js/badgeAPI.js"></script>
 </body>
 </html>

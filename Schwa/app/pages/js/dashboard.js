@@ -8,32 +8,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const file = e.target.files[0];
             
             if (file) {
-                // Vérifier que c'est bien une image
+                
                 if (!file.type.startsWith('image/')) {
                     alert('Veuillez sélectionner une image valide');
                     return;
                 }
 
-                // Vérifier la taille du fichier (max 5MB)
+                
                 if (file.size > 5 * 1024 * 1024) {
                     alert('L\'image est trop grande. Maximum 5MB.');
                     return;
                 }
 
-                // Créer un lecteur de fichier
+                
                 const reader = new FileReader();
 
                 reader.onload = function(event) {
-                    // Afficher l'image immédiatement
+                    
                     profileImage.src = event.target.result;
 
-                    // Animation de changement
+                    
                     profileImage.style.transform = 'scale(0.9)';
                     setTimeout(() => {
                         profileImage.style.transform = 'scale(1)';
                     }, 200);
 
-                    // Upload l'image vers le serveur
+                    
                     uploadProfilePhoto(file);
                 };
 
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation au scroll pour les cartes
+    
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Observer toutes les sections
+
     document.querySelectorAll('.lessons-section, .achievements-section').forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
@@ -66,23 +66,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Fonction pour uploader la photo vers le serveur
+
 function uploadProfilePhoto(file) {
     const formData = new FormData();
-    formData.append('file', file); // CORRECTION: 'file' au lieu de 'profile_photo'
+    formData.append('file', file);
 
     const loadingIndicator = document.createElement('div');
     loadingIndicator.className = 'upload-loading';
     loadingIndicator.innerHTML = '<div class="spinner"></div>';
     document.querySelector('.profile-photo-wrapper').appendChild(loadingIndicator);
 
-    // Envoi au serveur via AJAX
+    
     fetch('updatePDP.php', {
         method: 'POST',
         body: formData
     })
     .then(response => {
-        // Debug: voir la réponse brute
+        
         return response.text().then(text => {
             console.log('Réponse brute du serveur:', text);
             try {
@@ -93,14 +93,14 @@ function uploadProfilePhoto(file) {
         });
     })
     .then(data => {
-        // Retirer l'indicateur de chargement
+        
         loadingIndicator.remove();
 
         if (data.success) {
-            // Afficher un message de succès
+            
             showNotification('Photo de profil mise à jour avec succès!', 'success');
             
-            // Mettre à jour l'image avec le nouveau chemin
+            
             if (data.photoPath) {
                 document.getElementById('profileImage').src = data.photoPath;
             }
@@ -115,7 +115,7 @@ function uploadProfilePhoto(file) {
     });
 }
 
-// Fonction pour afficher des notifications
+
 function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -128,12 +128,12 @@ function showNotification(message, type = 'info') {
 
     document.body.appendChild(notification);
 
-    // Animation d'entrée
+    
     setTimeout(() => {
         notification.classList.add('show');
     }, 100);
 
-    // Retirer après 3 secondes
+    
     setTimeout(() => {
         notification.classList.remove('show');
         setTimeout(() => {
@@ -142,7 +142,7 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-// Animation des barres de progression au chargement
+
 window.addEventListener('load', function() {
     const progressBars = document.querySelectorAll('.progress-fill, .lesson-progress-fill');
     
@@ -156,7 +156,7 @@ window.addEventListener('load', function() {
     });
 });
 
-// Interaction avec les cartes de leçons
+
 document.querySelectorAll('.lesson-card-dashboard').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.borderLeftWidth = '6px';
@@ -167,7 +167,7 @@ document.querySelectorAll('.lesson-card-dashboard').forEach(card => {
     });
 });
 
-// Gestion du clic sur les badges
+
 document.querySelectorAll('.badge-item').forEach(badge => {
     badge.addEventListener('click', function() {
         if (this.classList.contains('locked')) {
@@ -180,7 +180,7 @@ document.querySelectorAll('.badge-item').forEach(badge => {
     });
 });
 
-// Style CSS pour les notifications (à ajouter dynamiquement)
+
 const notificationStyles = `
     .notification {
         position: fixed;
@@ -263,7 +263,6 @@ const notificationStyles = `
     }
 `;
 
-// Ajouter les styles au document
 const styleElement = document.createElement('style');
 styleElement.textContent = notificationStyles;
 document.head.appendChild(styleElement);

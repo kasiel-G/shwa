@@ -124,5 +124,6 @@
 
 <script src="js/darkmode.js"></script>
 <script src="js/readingwork.js"></script>
+<script src="js/badgeAPI.js"></script>
 </body>
 </html>

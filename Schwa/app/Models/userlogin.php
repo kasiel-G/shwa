@@ -7,13 +7,13 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-
         $req = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $req->execute([$email]);
         $cout_mail = $req->rowCount();
+        
         if ($cout_mail == 1) {
             $user = $req->fetch();
-            if (password_verify($password,$user["mdp"])) {
+            if (password_verify($password, $user["mdp"])) {
                 $_SESSION["auth"] = [
                     "id"=>$user["id"],
                     "email"=>$user["email"],
@@ -21,18 +21,22 @@
                     "prenom"=>$user["prenom"],
                     "niveau"=>$user["niveau"]
                 ];
+                
                 return [
                     "message" => "Connexion réussie",
                     "status" => "200",
                     "user" => $_SESSION['auth']
                 ];
-            } else{
+            } else {
+                
                 return [
                     "message" => "Mot de passe incorrect",
-                    "status" => "401"
+                    "status" => "401",
+                    "placeholder" => "password",
                 ];
             }
-        }else{
+        } else {
+            
             return [
                 "message" => "Email n'existe pas",
                 "status" => "404"

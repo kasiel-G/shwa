@@ -1,154 +1,5 @@
-<?php 
-session_start();
-
-// Vérifier si l'utilisateur est connecté
-if (!isset($_SESSION["auth"]["id"])) {
-    header("Location: login.php");
-    exit;
-}
-
-require_once "../../router/Dbconnection.php";
-$conn = connection_db();
-$userId = $_SESSION["auth"]["id"];
-
-// ==================== RÉCUPÉRATION DES STATISTIQUES ====================
-
-// 1. Points totaux
-$sqlPoints = "SELECT SUM(points) as total_points FROM exercices WHERE user_id = ?";
-$stmtPoints = $conn->prepare($sqlPoints);
-$stmtPoints->execute([$userId]);
-$totalPoints = $stmtPoints->fetch(PDO::FETCH_ASSOC)['total_points'] ?? 0;
-
-// 2. Leçons validées
-$sqlValidated = "SELECT COUNT(*) as validated FROM exercices WHERE user_id = ? AND status = 'valide'";
-$stmtValidated = $conn->prepare($sqlValidated);
-$stmtValidated->execute([$userId]);
-$lessonsValidated = $stmtValidated->fetch(PDO::FETCH_ASSOC)['validated'] ?? 0;
-
-// 3. Leçons non validées
-$sqlNotValidated = "SELECT COUNT(*) as not_validated FROM exercices WHERE user_id = ? AND status = 'non valide'";
-$stmtNotValidated = $conn->prepare($sqlNotValidated);
-$stmtNotValidated->execute([$userId]);
-$lessonsNotValidated = $stmtNotValidated->fetch(PDO::FETCH_ASSOC)['not_validated'] ?? 0;
-
-// 4. Jours de suite (streak)
-$sqlStreak = "SELECT date FROM exercices WHERE user_id = ? ORDER BY date DESC";
-$stmtStreak = $conn->prepare($sqlStreak);
-$stmtStreak->execute([$userId]);
-$dates = $stmtStreak->fetchAll(PDO::FETCH_COLUMN);
-
-$streak = 0;
-if (!empty($dates)) {
-    $today = new DateTime();
-    $yesterday = clone $today;
-    $yesterday->modify('-1 day');
-    
-    $lastDate = new DateTime($dates[0]);
-    
-    // Vérifier si la dernière activité était aujourd'hui ou hier
-    if ($lastDate->format('Y-m-d') === $today->format('Y-m-d') || 
-        $lastDate->format('Y-m-d') === $yesterday->format('Y-m-d')) {
-        
-        $streak = 1;
-        $previousDate = $lastDate;
-        
-        foreach (array_slice($dates, 1) as $dateStr) {
-            $currentDate = new DateTime($dateStr);
-            $diff = $previousDate->diff($currentDate)->days;
-            
-            if ($diff === 1) {
-                $streak++;
-                $previousDate = $currentDate;
-            } else {
-                break;
-            }
-        }
-    }
-}
-
-// 5. Progression du niveau (calculer % des leçons complétées)
-$totalLessonsByLevel = [
-    'A1' => 6,
-    'A2' => 6,
-    'B1' => 1
-]; // Ajuster selon vos leçons disponibles
-
-$currentLevel = $_SESSION["auth"]["niveau"];
-$totalLessonsForLevel = $totalLessonsByLevel[$currentLevel] ?? 20;
-$completedLessonsForLevel = $lessonsValidated; // Simplification
-
-$progressPercentage = $totalLessonsForLevel > 0 
-    ? round(($completedLessonsForLevel / $totalLessonsForLevel) * 100) 
-    : 0;
-
-// ==================== DERNIÈRES LEÇONS EN COURS ====================
-$sqlOngoing = "
-    SELECT title, category, level, points, date 
-    FROM exercices 
-    WHERE user_id = ? AND status = 'non valide'
-    ORDER BY date DESC 
-    LIMIT 3
-";
-$stmtOngoing = $conn->prepare($sqlOngoing);
-$stmtOngoing->execute([$userId]);
-$ongoingLessons = $stmtOngoing->fetchAll(PDO::FETCH_ASSOC);
-
-// ==================== LEÇONS TERMINÉES RÉCEMMENT ====================
-$sqlCompleted = "
-    SELECT title, category, level, points, date 
-    FROM exercices 
-    WHERE user_id = ? AND status = 'valide'
-    ORDER BY date DESC 
-    LIMIT 4
-";
-$stmtCompleted = $conn->prepare($sqlCompleted);
-$stmtCompleted->execute([$userId]);
-$completedLessons = $stmtCompleted->fetchAll(PDO::FETCH_ASSOC);
-
-// ==================== PHOTO DE PROFIL ====================
-$userPhoto = $_SESSION["auth"]["photo"] ?? "images/default-avatar.png";
-
-// ==================== HELPER FUNCTIONS ====================
-
-// Calculer le temps écoulé
-function timeAgo($datetime) {
-    $date = new DateTime($datetime);
-    $now = new DateTime();
-    $diff = $now->diff($date);
-    
-    if ($diff->d === 0) {
-        return "Aujourd'hui";
-    } elseif ($diff->d === 1) {
-        return "Hier";
-    } elseif ($diff->d < 7) {
-        return "Il y a " . $diff->d . " jour" . ($diff->d > 1 ? "s" : "");
-    } elseif ($diff->d < 30) {
-        $weeks = floor($diff->d / 7);
-        return "Il y a " . $weeks . " semaine" . ($weeks > 1 ? "s" : "");
-    } else {
-        $months = floor($diff->d / 30);
-        return "Il y a " . $months . " mois";
-    }
-}
-
-// Calculer le pourcentage de progression d'une leçon
-function calculateLessonProgress($points) {
-    $maxPoints = 100; // Points max par leçon
-    return min(100, round(($points / $maxPoints) * 100));
-}
-
-// Mapper les catégories aux pages
-function getCategoryPage($category) {
-    $pages = [
-        'Grammar' => 'grammar.php',
-        'Vocabulary' => 'vocabulary.php',
-        'Listening' => 'listening.php',
-        'Reading' => 'reading.php',
-        'Culture' => 'culture.php'
-    ];
-    return $pages[$category] ?? 'accueil.php';
-}
-
+<?php
+require_once "../Models/dashboardModel.php";
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -246,6 +97,7 @@ function getCategoryPage($category) {
                         $progress = calculateLessonProgress($lesson['points']);
                         $levelClass = strtolower($lesson['level']);
                         $page = getCategoryPage($lesson['category']);
+                        $stat = $lesson['status']
                     ?>
                         <div class="lesson-card-dashboard ongoing">
                             <div class="lesson-header">
@@ -253,7 +105,7 @@ function getCategoryPage($category) {
                                 <span class="lesson-progress-badge"><?= $progress ?>%</span>
                             </div>
                             <h4><?= htmlspecialchars($lesson['title']) ?></h4>
-                            <p class="lesson-category"><?= htmlspecialchars($lesson['category']) ?></p>
+                            <p class="lesson-category"><?= htmlspecialchars($lesson['category']) ?> <span style="font-weight: bold; color:red"> (<?= htmlspecialchars($lesson['status'])  ;?>)</span></p>
                             <div class="lesson-progress-bar">
                                 <div class="lesson-progress-fill" style="width: <?= $progress ?>%;"></div>
                             </div>

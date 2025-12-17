@@ -32,7 +32,7 @@
     </div>
 
     <div class="lessonbox">
-      <img src="../../public/IMG/dude having fun.jpg" alt="Listening">
+      <img src="../../public/IMG/study group.jpg" alt="Listening">
       <h2>Listening</h2>
       <p>Affinez votre oreille : Écoutez des conversations authentiques et développez votre compréhension orale à travers des dialogues variés.</p>
       <button onclick="location.href='listening.php'">Start Lesson</button>

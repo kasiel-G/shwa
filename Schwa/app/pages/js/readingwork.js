@@ -15,10 +15,10 @@ class ReadingLesson {
       document.getElementById('lessonDescription').textContent = this.description;
       document.getElementById('lessonLevel').textContent = this.level;
       
-      // Render reading text
+      
       document.getElementById('readingText').innerHTML = `<p>${this.text}</p>`;
       
-      // Render vocabulary
+      
       const vocabContainer = document.getElementById('vocabularyContainer');
       vocabContainer.innerHTML = '';
       this.vocabulary.forEach(item => {
@@ -31,7 +31,7 @@ class ReadingLesson {
         vocabContainer.appendChild(div);
       });
       
-      // Render comprehension tips
+      
       const tipsList = document.getElementById('comprehensionTips');
       tipsList.innerHTML = '';
       this.comprehensionTips.forEach(tip => {
@@ -528,7 +528,7 @@ class ReadingLesson {
     updateStats();
   });
   
-  // Tab switching
+  
   document.getElementById('btnLesson').addEventListener('click', () => {
     switchView('lesson');
     stopTimer();
@@ -557,7 +557,7 @@ class ReadingLesson {
     }
   }
   
-  // Timer functions
+  
   function startTimer() {
     if (timerInterval) return;
     
@@ -583,7 +583,7 @@ class ReadingLesson {
     document.getElementById('timerDisplay').textContent = '0:00';
   }
   
-  // Question loading
+  
   function loadQuestion() {
     const questions = readingLessonSystem[currentLesson].questions;
     const q = questions[currentQuestion];
@@ -661,7 +661,7 @@ class ReadingLesson {
 
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
       
-      // Préparer les données
+      
       const dataToSend = {
           title: currentLesson,
           category: "Reading",
@@ -702,7 +702,7 @@ class ReadingLesson {
           alert("Erreur lors de l'enregistrement du score: " + err.message);
       });
       
-      // Réinitialiser
+    
       localStorage.removeItem("readingLessonNav");
       currentQuestion = 0;
       score = 0;

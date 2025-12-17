@@ -34,7 +34,7 @@ class Lesson {
         examplesContainer.appendChild(div);
       });
       
-      // Render notes
+      
       const notesList = document.getElementById('notesList');
       notesList.innerHTML = '';
       this.notes.forEach(note => {
@@ -45,7 +45,7 @@ class Lesson {
     }
   }
 
-  // DONNÉES
+  
   const presentPerfect = new Lesson(
     'B1',
     'Present Perfect Tense',
@@ -1235,7 +1235,7 @@ const Grammar = {
   // B1 Lessons
   'presentPerfect': { lesson: presentPerfect, questions: presentPerfectQuestions }
 };
- // ÉTAT
+ 
   let currentQuestion = 0;
   let score = 0;
   let correct = 0;
@@ -1243,7 +1243,7 @@ const Grammar = {
   let answered = false;
   let currentLesson = localStorage.getItem('lessonNav');
   const questions = Grammar[currentLesson].questions;
-  // INITIALISATION
+  
   document.addEventListener('DOMContentLoaded', () => {
     // presentPerfect.render();
     // toBe.render();
@@ -1398,7 +1398,7 @@ const Grammar = {
 
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
       
-      // Préparer les données
+      
       const dataToSend = {
           title: currentLesson,
           category: "Grammar",
@@ -1411,7 +1411,7 @@ const Grammar = {
       
       console.log("Envoi des données:", dataToSend);
       
-      // Envoyer les données
+       
       fetch('./save_score.php', {
         method: 'POST',
         headers: {

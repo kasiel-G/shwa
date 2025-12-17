@@ -15,10 +15,10 @@ class VocabularyLesson {
       document.getElementById('lessonDescription').textContent = this.description;
       document.getElementById('lessonLevel').textContent = this.level;
       
-      // Render introduction
+      
       document.getElementById('vocabIntroduction').innerHTML = `<p>${this.introduction}</p>`;
       
-      // Render words list
+      
       const wordsContainer = document.getElementById('wordsListContainer');
       wordsContainer.innerHTML = '';
       this.wordsList.forEach(item => {
@@ -735,7 +735,7 @@ class VocabularyLesson {
     updateStats();
   });
   
-  // Tab switching
+  
   document.getElementById('btnLesson').addEventListener('click', () => {
     switchView('lesson');
     stopTimer();
@@ -861,7 +861,7 @@ class VocabularyLesson {
       const seconds = totalSeconds % 60;
       let test = '';
       
-      if (score > 65) {
+      if (score >= 50) {
         test = 'valide';
       } else {
         test = 'non valide';
@@ -869,7 +869,7 @@ class VocabularyLesson {
 
       alert(`Quiz terminé! Score final: ${score} points, votre temps est de ${minutes} minutes et ${seconds} secondes.`);
       
-      // Préparer les données
+      
       const dataToSend = {
           title: currentLesson,
           category: "Vocabulary",
@@ -882,7 +882,7 @@ class VocabularyLesson {
       
       console.log("Envoi des données:", dataToSend);
       
-      // Envoyer les données
+      //envoie de donnee
       fetch('./save_score.php', {
         method: 'POST',
         headers: {
@@ -910,7 +910,7 @@ class VocabularyLesson {
           alert("Erreur lors de l'enregistrement du score: " + err.message);
       });
       
-      // Réinitialiser
+      
       localStorage.removeItem("vocabularyLessonNav");
       currentQuestion = 0;
       score = 0;

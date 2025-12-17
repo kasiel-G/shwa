@@ -41,14 +41,14 @@ try {
     $ext = new DateTime($cov);
     $date = $ext->format('Y-m-d H:i:s');
     
-    // Vérifier si un enregistrement existe déjà
+    
     $checkSql = "SELECT id FROM exercices WHERE title = ? AND user_id = ?";
     $checkStmt = $conn->prepare($checkSql);
     $checkStmt->execute([$title, $userId]);
     $existing = $checkStmt->fetch(PDO::FETCH_ASSOC);
     
     if ($existing) {
-        // UPDATE : Mettre à jour l'enregistrement existant
+        
         $sql = "UPDATE exercices 
                 SET points = ?, 
                     time = ?, 
@@ -74,7 +74,7 @@ try {
         ]);
         
     } else {
-        // INSERT : Créer un nouvel enregistrement
+        
         $sql = "INSERT INTO exercices (title, category, level, points, time, date, user_id, status)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
